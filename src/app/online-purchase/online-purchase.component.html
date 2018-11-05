@@ -1,0 +1,73 @@
+
+
+<h3 class="success-message">{{Msg}}</h3>
+
+
+<div class="container">
+
+    <h4>Online Purchase</h4>
+    <!-- Trigger the modal with a button -->
+    <label class="switch">
+        <input type="checkbox"  data-toggle="modal" data-target="#myModal" (change)="flag = !flag">
+        <span class="slider round"></span>
+    </label>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div *ngIf="!flag">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                        <h3 class="warning-msg">{{activateMsgHeader}}</h3>
+                    </div>
+                    <div class="modal-body">
+                        <h4 class="warning-msg">{{activateMsgBody}}</h4>
+                    </div>
+                    <div class="modal-footer">
+
+                        <div class="save-btn">
+                          <button  type="button"  (click)="onClickActivateOnlinePurchaseBtn()" style="padding: 14px 28px; background-color: #4CAF50;  width: 50%;" class="btn btn-primary" data-dismiss="modal">
+                              Save
+                          </button>
+                        </div>
+
+                        <br>
+                        <div class="cancel-btn">
+                            <button type="button" style="padding: 14px 28px; width: 50%;" class="btn btn-default" data-dismiss="modal">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="flag">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                        <h3 class="warning-msg">{{DeactivateMsgHeader}}</h3>
+                    </div>
+                    <div class="modal-body">
+                        <h4 class="warning-msg">{{DeactivateMsgBody}}</h4>
+                    </div>
+                    <div class="modal-footer">
+
+                        <div class="save-btn">
+                          <button type="button" (click)=  "onClickDeactivateOnlinePurchaseBtn()" style="padding: 14px 28px; background-color: #4CAF50;  width: 50%;" class="btn btn-primary" data-dismiss="modal">
+                            Save
+                          </button>
+                        </div>
+                        <br>
+                        <div class="cancel-btn">
+                          <button type="button"  style="padding: 14px 28px; width: 50%;" class="btn btn-default" data-dismiss="modal">
+                                Cancel
+                          </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- <button (click)="onClickMe()">Click me!</button>
+{{clickMessage}} -->
