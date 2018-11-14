@@ -10,7 +10,7 @@ import { OnlinePurchaseComponent } from './online-purchase/online-purchase.compo
     OnlinePurchaseComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

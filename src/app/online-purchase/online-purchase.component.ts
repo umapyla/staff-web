@@ -1,26 +1,23 @@
 import { Component, Input } from '@angular/core';
-
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { Constant } from '../Constant';
 @Component({
   selector: 'app-online-purchase',
   templateUrl: './online-purchase.component.html',
   styleUrls: ['./online-purchase.component.css']
 })
 export class OnlinePurchaseComponent  {
-  activateMsgBody = 'you will be able to pay online with your card.';
-  activateMsgHeader = 'Activate online Service.?';
-  DeactivateMsgHeader = 'Deactivate online purchases?';
-  DeactivateMsgBody = 'you wont be able to pay online with your card.'  ;
+  labelforActivateMsgHeader = Constant.Messages.activateMsgHeader;
+  labelforActiveMsgBody = Constant.Messages.activateMsgBody;
+  labelfoDeactivateMsgHeader = Constant.Messages.deactivateMsgHeader;
+  labelforDeactivateMsgBody = Constant.Messages.deactivateMsgBody;
+  labelFlag = Constant.Messages.flag;
+   msg = '';
 
-  status = 'true';
-  flag = true;
-  @Input() Msg = '';
-
-  onClickActivateOnlinePurchaseBtn() {
-    this.Msg = 'Online Purchases now Active';
+  onSaveBtn() {
+    this.msg = this.labelFlag ? 'Online Purchases now Active' : 'Online Purchases now Deactivate';
   }
-  onClickDeactivateOnlinePurchaseBtn() {
-    this.Msg = 'Online Purchases now Deactivate';
-  }
-  constructor() {
+  onclick() {
+    this.labelFlag = !this.labelFlag;
   }
 }
