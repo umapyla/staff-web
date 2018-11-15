@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { TransactiondetailsComponent } from './transactiondetails/transactiondetails.component';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DataService } from './service/data.service';
+import { HttpModule } from '@angular/http';
 
 export const routes:Routes = [
   {path:'dashboard',component:DashboardComponent},
@@ -20,9 +22,10 @@ export const routes:Routes = [
    ],
    imports: [
       BrowserModule,
+      HttpModule,
       RouterModule.forRoot(routes)
    ],
-   providers: [],
+   providers: [DataService],
    bootstrap: [
       AppComponent
    ]

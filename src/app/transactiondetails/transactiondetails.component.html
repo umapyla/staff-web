@@ -1,0 +1,18 @@
+<div>
+    <table class= "table table-boardered table-striped">
+        <thead>
+          <td>Date</td>
+          <td>Description</td>
+          <td>Amount</td>
+          <td>Balance</td>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tx of transactionDetails">
+            <td>{{tx.Date}}</td>
+            <td>{{tx.descripton}}</td>
+            <td>{{tx.Amount}}</td>
+            <td>{{tx.Balance}}</td>
+          </tr>
+        </tbody>
+    </table>
+</div>
