@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TransactionSearchService } from "../transaction-search.service";
+import { TransactionDetail } from "./transaction.model";
 
 @Component({
   selector: 'app-transactional-search',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionalSearchComponent implements OnInit {
 
-  constructor() { }
+  search: string;
+ transactions : Array<TransactionDetail>
+
+  constructor(private transactionSearchService:TransactionSearchService) { }
 
   ngOnInit() {
+    this.getData();
+  }
+
+  onClick(){
+   this.search = '';
+  }
+
+  getData() {
+    this.transactionSearchService.getData().subscribe(resp => {
+      this.transactions = resp.json();
+    })
   }
 
 }
