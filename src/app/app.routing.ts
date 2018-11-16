@@ -9,7 +9,8 @@ const routes: Routes =[
     },
     {
         path: 'accounts',
-        loadChildren: './transection-details/transection-details.module#TransectionDetailsModule'
+        // loadChildren: './transaction-details/transaction-details.module#TransectionDetailsModule'
+        loadChildren: './transaction-details/transaction-details.module#TransectionDetailsModule'
       },
 ];
 @NgModule(

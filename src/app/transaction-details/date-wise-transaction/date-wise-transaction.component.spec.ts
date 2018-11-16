@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DateWiseTransectioComponent } from './date-wise-transectio.component';
+import { DateWiseTransectioComponent } from './date-wise-transaction.component';
 
 describe('DateWiseTransectioComponent', () => {
   let component: DateWiseTransectioComponent;
