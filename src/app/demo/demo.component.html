@@ -9,7 +9,7 @@
     <label *ngIf="successFlag && !firstModel">
       <img src="../assets/images/icons/Icon_Check_Green.svg"> Card Frozen Successfully </label>
     <label *ngIf="unfreezeFlag && firstModel">
-        <img src="../assets/images/icons/Icon_Check_Green.svg"> Unfreeze Successfull </label>
+      <img src="../assets/images/icons/Icon_Check_Green.svg"> Unfreeze Successfull </label>
 
   </div>
 
@@ -18,44 +18,34 @@
 
     <div *ngIf="!firstModel">
       <form class="nlsg-c-form-element">
-      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
 
-      <!-- <div class="modal-body"> -->
-      <div class="col-md-6">
-        <img src="../assets/images/icons/green-info.svg">
-        <label class="nlsg-c-form-element__freeze">Do you want to freeze your card?</label>
-        <label class="nlsg-c-form-element__freeze">Please note that certain transactions will be restricted until you unfreeze your card</label>
-        <label class="nlsg-c-form-element__freeze">If your card is lost or stolen, block your card.</label>
-        <button class="nlsg-c-button" (click)="onNextClick();c('Close click')">Next</button>
-        <button class="nlsg-c-button" type="button" (click)="c('Close click')">Close</button>
+        <div class="col-md-6">
+          <img src="../assets/images/icons/green-info.svg">
+          <label class="nlsg-c-form-element__freeze">Do you want to freeze your card?</label>
+          <label class="nlsg-c-form-element__freeze">Please note that certain transactions will be restricted until you unfreeze your card</label>
+          <label class="nlsg-c-form-element__freeze">If your card is lost or stolen, block your card.</label>
+          <button class="nlsg-c-button" (click)="onNextClick();c('Close click')">Next</button>
+          <button class="nlsg-c-button" type="button" (click)="c('Close click')">Close</button>
 
-      </div>
+        </div>
       </form>
 
     </div>
     <div *ngIf="firstModel">
       <form class="nlsg-c-form-element">
-      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
+        <div class="col-md-6">
+          <img class="nlsg-c-form-element__imgU" src="../assets/images/icons/green-info.svg">
+          <br>
+          <label>Unfreeze card</label>
+          <label>Your card will be enabled for all transactions</label>
 
-      <!-- <div class="modal-body"> -->
-      <div class="col-md-6">
-        <img class="nlsg-c-form-element__imgU" src="../assets/images/icons/green-info.svg">
-        <label>Unfreeze card</label>
-        <label>Your card will be enabled for all transactions</label>
-
-        <button class="nlsg-c-button" (click)=" unFreezeClick();c('Close click')">Next</button>
-        <button class="nlsg-c-button" type="button" (click)="c('Close click')">Close</button>
-      </div>
+          <button class="nlsg-c-button" (click)=" unFreezeClick();c('Close click')">Next</button>
+          <button class="nlsg-c-button" type="button" (click)="c('Close click')">Close</button>
+        </div>
       </form>
-      </div>
+    </div>
   </ng-template>
 
 
 
-  </div>
-
-  <!-- <button (click)="onclick()"> {{ clicked ? "Text 1" : "Text 2"}} </button> -->
+</div>
