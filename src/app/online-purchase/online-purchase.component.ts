@@ -12,12 +12,12 @@ export class OnlinePurchaseComponent {
   messageHeader: string;
   messageBody: string;
   msg = '';
-  deactivate = '';
+  activate= Constant.Messages.activateMessage;
+  deactivate = Constant.Messages.deactivateMessage;
 
   onSaveBtn() {
-    this.msg = this.flag
-      ? 'Online Purchases now Active'
-      : 'Online Purchases now Deactivate';
+      this.msg = this.flag
+      ? this.activate : this.deactivate;
   }
   onclick() {
     this.flag = !this.flag;
