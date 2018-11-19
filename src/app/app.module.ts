@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { ViewBankerComponent } from './view-banker/view-banker.component';
 import { ViewBankerService } from './view-banker.service';
 import { HttpModule } from '@angular/http';
+import { OnlinePurchaseComponent } from './online-purchase/online-purchase.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ViewBankerComponent
+    ViewBankerComponent,
+    OnlinePurchaseComponent
   ],
   imports: [
     BrowserModule, HttpModule
