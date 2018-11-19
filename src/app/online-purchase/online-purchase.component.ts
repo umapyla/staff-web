@@ -7,13 +7,14 @@ import { Constant } from '../Constant';
 })
 export class OnlinePurchaseComponent {
 
-  flag = false;
+  flag: Boolean = false;
   message = Constant.Messages;
   messageHeader: string;
   messageBody: string;
-  msg = '';
-  activate= Constant.Messages.activateMessage;
-  deactivate = Constant.Messages.deactivateMessage;
+  // tslint:disable-next-line:no-inferrable-types
+  msg: string = '';
+  activate: string  = Constant.Messages.activateMessage;
+  deactivate: string = Constant.Messages.deactivateMessage;
 
   onSaveBtn() {
       this.msg = this.flag
