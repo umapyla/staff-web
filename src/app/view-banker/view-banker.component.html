@@ -1,0 +1,32 @@
+<div class="Web_View-Banker">
+  <div class="nedbank-header"></div>
+  <div class="Large---Desktop-Tablet">
+    <div class="Rectangle" *ngIf="!showBankerDetails">
+      <!-- <span class="Rectangle-button" (click)="showDetails()"></span> -->
+      <img src="../../assets/images/right-arrow-cap.svg" class="Rectangle-button" (click)="showDetails()">
+      <div class="Your-Banker-1">
+        Your Banker
+      </div>
+    </div>
+    <div class="Rectangle-details" *ngIf="showBankerDetails">
+      <div>
+        <img src="../../assets/images/right-arrow-cap.svg" class="Rectangle-button-close" (click)="hideDetails()">
+        <!-- <span class="Rectangle-button-close" (click)="hideDetails()"></span> -->
+        <h5 class="nameInitial" [innerHtml]="getInitials(firstName, surName) |uppercase "></h5>
+        <span class="Oval"></span>
+        <!-- <img src="../../assets/images/oval-3.png" srcset="../../assets/images/oval-3@2x.png 2x, ../../assets/images/oval-3@3x.png 3x" class="Oval-3"> -->
+        <div class="Name-Banker" *ngFor="let i of clientsInfo">{{i.FullNames | titlecase}}</div>
+        <div class="Your-Banker-2">Your Banker</div>
+      </div>
+      <div class="Divider-full"></div>
+      <div *ngFor="let i of bankersInfo">
+          <span class="GreenCall"> </span>
+          <!-- <img src="../../assets/images/greenCall.png" srcset="../../assets/images/greenCall@2x.png 2x, ../../assets/images/greenCall@3x.png 3x" class="GreenCall"> -->
+          <div class="Contact-Info">{{i.workNumber}}</div>
+          <span class="GreenMsg"></span>
+          <!-- <img src="../../assets/images/greenMsg.png" srcset="../../assets/images/greenMsg@2x.png 2x, ../../assets/images/greenMsg@3x.png 3x" class="GreenMsg"> -->
+          <a class="Email-Info" href="mailto:{{i.emailAddress}}">{{i.emailAddress}}</a>
+      </div>
+    </div>
+  </div>
+</div>

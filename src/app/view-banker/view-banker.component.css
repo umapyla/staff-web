@@ -1,0 +1,216 @@
+.Web_View-Banker {
+  position: fixed;
+  width: 1440px;
+  height: 1024px;
+  background-color: #f2f2f2;
+  margin-left: -8px;
+  margin-top: -8px;
+}
+
+.nedbank-header {
+  width: 1440px;
+  height: 80px;
+  background-color: #006341;
+}
+
+.Large---Desktop-Tablet {
+  position: absolute;
+  top: 80px;
+  right: 87px;
+  bottom: 844px;
+  width: 1266px;
+  height: 100px;
+}
+
+.Rectangle {
+  position: absolute;
+  top: 20px;
+  right: 87px;
+  bottom: 20px;
+  width: 200px;
+  height: 60px;
+  background-color:#ffffff;
+}
+.Your-Banker-1 {
+  position: absolute;
+  top: 17px;
+  right: 25px;
+  bottom: 20.5px;
+  width: 119px;
+  height: 22.5px;
+  font-family: MarkPro;
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  color: #333333;
+}
+
+.Your-Banker-2 {
+  position: absolute;
+  top: 36px;
+  left: 121px;
+  bottom: 10px;
+  width: 96px;
+  height: 24px;
+  font-family: MarkPro;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #666666;
+}
+
+.Name-Banker {
+  position: absolute;
+  top: 12px;
+  left: 121px;
+  bottom: 35.5px;
+  width: 163px;
+  height: 22.5px;
+  font-family: MarkPro;
+  font-size: 19px;
+  font-weight: 530;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  color: #333333;
+}
+
+.Rectangle-button {
+  position: absolute;
+  top: 21px;
+  bottom: 23px;
+  left: 26.2px;
+  width: 16px;
+  height: 16px;
+  transform: rotate(180deg);
+  /* border: solid 2px #bbbbbb; */
+}
+
+.Rectangle-details {
+  position: absolute;
+  top: 20px;
+  right: 87px;
+  bottom: 20px;
+  width: 548px;
+  height: 70px;
+  background-color: #ffffff;
+}
+
+.Rectangle-button-close {
+  position: absolute;
+  top: 26px;
+  bottom: 28px;
+  left: 10.2px;
+  width: 16px;
+  height: 16px;
+  /* border: solid 2px #bbbbbb; */
+}
+
+.Oval {
+  position: absolute;
+  left: 51px;
+  top: 10px;
+  bottom: 10px;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border: solid 1px var(--apple-green);
+  background-image: url("../../assets/images/oval-3.png");
+}
+
+.nameInitial {
+  position: absolute;
+  left: 51px;
+  top: -12px;
+  bottom: 25px;
+  width: 50px;
+  height: 20px;
+  font-family: MarkPro;
+  font-size: 22px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.91;
+  letter-spacing: normal;
+  text-align: center;
+  color: #333333;
+}
+
+.Divider-full {
+  position: absolute;
+  left: 258px;
+  width: 1px;
+  height: 70px;
+  background-color: #d1d1d1;
+}
+
+.GreenMsg {
+  position: absolute;
+  left: 286px;
+  top: 36px;
+  bottom: 10px;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  background-image: url("../../assets/images/greenMsg.png");
+}
+
+.GreenCall {
+  position: absolute;
+  left: 286px;
+  top: 10px;
+  bottom: 36px;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  background-image: url("../../assets/images/greenCall.png");
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 5px 0 5px 10px;
+}
+
+.Email-Info {
+  position: absolute;
+  left: 321px;
+  top: 34px;
+  bottom: 12px;
+  width: 220px;
+  height: 24px;
+  font-family: MarkPro;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #009639;
+  text-decoration: none;
+}
+
+.Contact-Info {
+  position: absolute;
+  left: 321px;
+  top: 9px;
+  bottom: 37px;
+  width: 148px;
+  height: 24px;
+  font-family: MarkPro;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #666666;
+}
