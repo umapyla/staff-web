@@ -1,9 +1,9 @@
 export class TransactionDetail {
  constructor(
-     description: string,
-     date: string,
-     amount: string,
-     
+    descripton: string,
+     Date: string,
+     Amount: string,
+     Balance: string
     ) {}
 }
      

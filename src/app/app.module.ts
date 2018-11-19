@@ -6,9 +6,10 @@ import { TransactionalSearchComponent } from '../app/transactional-search/transa
 import { Routes, RouterModule } from "@angular/router";
 import { FormsModule } from '@angular/forms';
 import { TransactionSearchService } from "./transaction-search.service";
+import { HttpModule } from "@angular/http";
 
 const routes: Routes = [
-  {path: '', component: AppComponent},
+  {path: '', component: TransactionalSearchComponent},
   {path:'transactional' ,component: TransactionalSearchComponent}
 ]
 
@@ -18,7 +19,7 @@ const routes: Routes = [
     TransactionalSearchComponent
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(routes)
+    BrowserModule, RouterModule.forRoot(routes), FormsModule,HttpModule
   ],
   providers: [ TransactionSearchService ],
 
