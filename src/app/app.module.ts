@@ -7,6 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DataService } from './service/data.service';
 import { HttpModule } from '@angular/http';
+import { SignedValueDirective } from './signedValue.directive';
 
 export const routes:Routes = [
   {path:'dashboard',component:DashboardComponent},
@@ -18,14 +19,17 @@ export const routes:Routes = [
    declarations: [
       AppComponent,
       TransactiondetailsComponent,
-      DashboardComponent
+      DashboardComponent,
+      SignedValueDirective
    ],
    imports: [
       BrowserModule,
       HttpModule,
       RouterModule.forRoot(routes)
    ],
-   providers: [DataService],
+   providers: [
+      DataService
+   ],
    bootstrap: [
       AppComponent
    ]

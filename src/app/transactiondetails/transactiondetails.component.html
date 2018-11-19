@@ -1,18 +1,40 @@
-<div>
-    <table class= "table table-boardered table-striped">
-        <thead>
-          <td>Date</td>
-          <td>Description</td>
-          <td>Amount</td>
-          <td>Balance</td>
-        </thead>
-        <tbody>
-          <tr *ngFor="let tx of transactionDetails">
-            <td>{{tx.Date}}</td>
-            <td>{{tx.descripton}}</td>
-            <td>{{tx.Amount}}</td>
-            <td>{{tx.Balance}}</td>
-          </tr>
-        </tbody>
-    </table>
+<div class="nlsg-c-profile">
+  <div class="nlsg-c-profile-listing">
+    <div class="nlsg-c-profile-main">
+      <form class="nlsg-c-form-element">
+        <div>
+        <table class= "table table-boardered table-striped">
+          <thead class="nlsg-c-form-element__title">
+            <td>Date</td>
+            <td>Description</td>
+            <td>Amount</td>
+            <td>Balance</td>
+          </thead>
+          <tbody  *ngFor="let tx of transactionDetails; let i=index">
+            <tr>
+              <td>{{tx.Date}}</td>
+
+              <td><span (click)="moreDetails(tx.id, tx.transaction_list)">{{tx.descripton}}</span></td>
+            <td [ngClass]="tx.Amount < 0 ? 'negative':'positive'">{{tx.Amount}}</td>
+              <td>{{tx.Balance}}</td>
+            </tr>
+            <div *ngIf="displayMoreDetail[tx.id]" >
+                <div  *ngFor="let txl of showData" colspan="6">
+                  <div class="">
+                    <div class="nlsg-c-form-element__label"><label>AccountNumber:</label>{{txl.AccountNumber}}</div>
+                    <div class="nlsg-c-form-element__label"><label>TransactionType:</label>{{txl.TransactionType}}</div>
+                    <div class="nlsg-c-form-element__label"><label >TransactionDescription:</label>{{txl.TransactionDescription}}</div>
+                    <div class="nlsg-c-form-element__label"><label>TransactionAmount:</label>{{txl.TransactionAmount}}</div>
+                    <div class="nlsg-c-form-element__label"><label>TransactionDate:</label>{{txl.TransactionDate}}</div>
+                    <div class="nlsg-c-form-element__label"><label>ReferenceNumber:</label>{{txl.ReferenceNumber}}</div>
+                    <div class="nlsg-c-form-element__label"><label>ErrorCode:</label>{{txl.ErrorCode}}</div>
+                </div>
+              </div>
+            </div>
+          </tbody>
+        </table>
+      </div>
+    </form>
+  </div>
+  </div>
 </div>

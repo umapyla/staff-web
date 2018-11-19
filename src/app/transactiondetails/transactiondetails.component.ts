@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data.service';
-import { TxDetails } from './transactiondetails.model';
+//import { TxDetails, IShowDetails} from './transactiondetails.model';
 import { Response, Http } from '@angular/http';
+import { TxDetails, IShowDetails } from './transactiondetails.model';
 
 @Component({
   selector: 'app-transactiondetails',
@@ -9,11 +10,20 @@ import { Response, Http } from '@angular/http';
   styleUrls: ['./transactiondetails.component.scss']
 })
 export class TransactiondetailsComponent implements OnInit {
-  transactionDetails:Array<TxDetails>;
+  transactionDetails:TxDetails[];
+  showData: IShowDetails[];
+  isDisplay:boolean;
+  selectedIndex: number;
+  AccountData: any[];
+  transaction_list: any[];
+  displayMoreDetail: any[] = [];
   constructor(private dataservice: DataService) { }
 
   ngOnInit() {
     this.getData();
+    this.transactionDetails.forEach((data, index) => {
+      this.displayMoreDetail[data.id] = true;
+  });
 
   }
 
@@ -21,6 +31,21 @@ export class TransactiondetailsComponent implements OnInit {
     this.dataservice.getData().subscribe(response=>{
      this.transactionDetails = response.json();
      console.log(this.transactionDetails);
+    });
+  }
+
+
+    moreDetails(txId:number, transaction_list: any) {
+    this.showData = [];
+    this.transactionDetails.forEach((currentTransaction,index)=> {
+      if(txId === currentTransaction.id){
+
+        this.showData = transaction_list;
+        this.displayMoreDetail[currentTransaction.id] = this.displayMoreDetail[currentTransaction.id] ? false: true;
+      }else
+      {
+        this.displayMoreDetail[currentTransaction.id] = false;
+      }
     });
 
   }
