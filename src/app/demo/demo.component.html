@@ -1,51 +1,40 @@
 <div class="container">
-  <div class="nlsg-c-form-element__toggle-wrapper">
+  <div class="toggle-wrapper">
     <label>Freeze card</label>
-    <label class="nlsg-c-form-element__toggle-wrapper__toggle">
-      <input type="checkbox" (click)="open(content)" (change)="firstModel = !firstModel;">
-      <span class="nlsg-c-form-element__toggle-wrapper__toggle__slider round"></span>
+    <label class="toggle-wrapper__toggle">
+      <input type="checkbox" (click)="open(content)" (change)="openModel = !openModel;">
+      <span class="toggle-wrapper__toggle__slider round"></span>
     </label>
-
-    <label *ngIf="successFlag && !firstModel">
-      <img src="../assets/images/icons/Icon_Check_Green.svg"> Card Frozen Successfully </label>
-    <label *ngIf="unfreezeFlag && firstModel">
-      <img src="../assets/images/icons/Icon_Check_Green.svg"> Unfreeze Successfull </label>
-
+    <div *ngIf="displayLabel">
+      <label *ngIf="isCardFreeze && !openModel">
+        <span class="freezeCard"> </span>{{labels.freezeCard}}
+         </label>
+         <label *ngIf="!isCardFreeze && openModel">
+            <span class="freezeCard"></span> {{labels.unfreezeCard}} </label>
+    </div>
   </div>
 
-
-  <ng-template #content let-c="close" let-d="dismiss">
-
-    <div *ngIf="!firstModel">
-      <form class="nlsg-c-form-element">
-
+  <ng-template #content let-c="close" >
+    <div *ngIf="!openModel">
         <div class="col-md-6">
-          <img src="../assets/images/icons/green-info.svg">
-          <label class="nlsg-c-form-element__freeze">Do you want to freeze your card?</label>
-          <label class="nlsg-c-form-element__freeze">Please note that certain transactions will be restricted until you unfreeze your card</label>
-          <label class="nlsg-c-form-element__freeze">If your card is lost or stolen, block your card.</label>
-          <button class="nlsg-c-button" (click)="onNextClick();c('Close click')">Next</button>
+          <span class="green-info"></span>
+          <label class="labelForFreeze">{{labels.freezeConfirm}}</label><br>
+          <label class="labelForFreeze">{{labels.freezeNote}}</label><br>
+          <label class="labelForFreeze">{{labels.lostStolen}}</label>
+          <button class="nlsg-c-button" (click)="onNextClick('freeze');c('Close click')">Next</button>
           <button class="nlsg-c-button" type="button" (click)="c('Close click')">Close</button>
-
         </div>
-      </form>
-
     </div>
-    <div *ngIf="firstModel">
-      <form class="nlsg-c-form-element">
-        <div class="col-md-6">
-          <img class="nlsg-c-form-element__imgU" src="../assets/images/icons/green-info.svg">
-          <br>
-          <label>Unfreeze card</label>
-          <label>Your card will be enabled for all transactions</label>
 
-          <button class="nlsg-c-button" (click)=" unFreezeClick();c('Close click')">Next</button>
+    <div *ngIf="openModel">
+        <div class="col-md-6">
+         <span class="green-info"></span>
+          <br>
+          <label>{{labels.unfreeze}}</label><br>
+          <label>{{labels.transactionEnabled}}</label>
+          <button class="nlsg-c-button" (click)=" onNextClick('unfreeze');c('Close click')">Next</button>
           <button class="nlsg-c-button" type="button" (click)="c('Close click')">Close</button>
         </div>
-      </form>
     </div>
   </ng-template>
-
-
-
 </div>

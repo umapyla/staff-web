@@ -5,8 +5,6 @@ import { AppComponent } from './app.component';
 import { DemoComponent } from './demo/demo.component';
 import { NgbModule   } from '@ng-bootstrap/ng-bootstrap';
 
-// import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-// import { ToastModule } from 'ng2-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,9 +13,7 @@ import { NgbModule   } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     FormsModule,
     BrowserModule,
-    // BrowserAnimationsModule,
-    NgbModule.forRoot()
-    //  ToastModule.forRoot()
+   NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

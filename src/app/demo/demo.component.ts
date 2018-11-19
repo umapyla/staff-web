@@ -1,43 +1,40 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
-// import { User } from '../models/User';
-// import { Address } from '../models/address';
-import {NgbModal, ModalDismissReasons, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
-
+import { Component, OnInit, ViewContainerRef } from "@angular/core";
+import {
+  NgbModal,
+  ModalDismissReasons,
+  NgbModalRef
+} from "@ng-bootstrap/ng-bootstrap";
+import { constants } from "../constants";
 
 @Component({
-  selector: 'app-demo',
-  templateUrl: './demo.component.html',
-  styleUrls: ['./demo.component.scss']
+  selector: "app-demo",
+  templateUrl: "./demo.component.html",
+  styleUrls: ["./demo.component.scss"]
 })
 export class DemoComponent implements OnInit {
- unfreezeFlag = false;
-clicked= true;
-
-  successFlag = false;
+  public isCardFreeze: boolean;
+  clicked = true;
   private modalRef: NgbModalRef;
-  firstModel= true;
-  constructor(private modalService: NgbModal) {
-
-  }
-
-  ngOnInit() {
-  }
+  openModel = true;
+  labels = constants.labels.freeze;
+  displayLabel: boolean = false;
+  constructor(private modalService: NgbModal) {}
+  ngOnInit() {}
 
   open(content) {
+    this.displayLabel = true;
     this.modalRef = this.modalService.open(content);
-
   }
-
 
   openLg(content) {
     this.modalService.open(content);
   }
 
-  onNextClick() {
-    this.successFlag = true;
-
-  }
-  unFreezeClick() {
-    this.unfreezeFlag = true;
+  onNextClick(value: string) {
+    if (value === "freeze") {
+      this.isCardFreeze = true;
+    } else if (value === "unfreeze") {
+      this.isCardFreeze = false;
+    }
   }
 }
