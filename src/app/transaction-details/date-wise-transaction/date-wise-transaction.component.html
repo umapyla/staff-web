@@ -1,43 +1,64 @@
 
 <div class="container">
 
-  <br><br><br>
-  <div class="row">
-
-    <div class="col-md-3">
-        <input type="date"  placeholder="from Date" class="form-control" >
-        <script>
-            $('#datepicker').datepicker({
-                uiLibrary: 'bootstrap4'
-            });
-        </script>
-    </div>
-    
-     
-    <div class="col-md-3">
-        <input type="date" placeholder="To date"  class="form-control" >
-        <script>
-            $('#datepicker').datepicker({
-                uiLibrary: 'bootstrap4'
-            });
-        </script>
-    </div>
-     
-      <div class="col-md-3">
-        <input type="submit" class="btn btn-success">
-      </div>
-  </div>
-   <br><br><br>
   <div class="row">
       <div class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-outline-success">30 DAYS</button>
-          <button type="button" class="btn btn-outline-success">60 DAYS</button>
-          <button type="button" class="btn btn-outline-success">90 DAYS</button>
-          <button type="button" class="btn btn-outline-success" >CUSTOM</button>
-
+          <button type="button" class="btn btn-outline-success" (click)="searchThirtyDay(30)" [disabled]="isCustom">30 DAYS</button>
+          <button type="button" class="btn btn-outline-success" (click)="searchThirtyDay(60)" [disabled]="isCustom">60 DAYS</button>
+          <button type="button" class="btn btn-outline-success" (click)="searchThirtyDay(90)" [disabled]="isCustom">90 DAYS</button>
+          <button type="button" class="btn btn-outline-success" (click)="custom()"  >CUSTOM</button>
         </div>
   </div>
  
+  <div *ngIf="isCustom" > 
+    <div class="row">
+       
+            <div class="col-md-3">
+                <input type="date"  placeholder="from Date" class="form-control" [(ngModel)]="fromDate" >
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                <script>
+                    $('#datepicker').datepicker({
+                        uiLibrary: 'bootstrap4'
+                    });
+                </script>
+            </div>
+            
+             
+            <div class="col-md-3">
+                <input type="date" placeholder="To date"  class="form-control" [(ngModel)]="toDate" >
+                <script>
+                    $('#datepicker').datepicker({
+                        uiLibrary: 'bootstrap4'
+                    });
+                </script>
+            </div>
+             
+              <div class="col-md-3">
+                <input type="submit" class="btn btn-success" (click)="customSearch()"  >
+              </div>
+          </div>
+ </div>
+  <div class="container">
+    <!-- <input type="button" class="btn btn-primary" value="DATE WISE SEARCH" (click)="dateWiseSearch()"> -->
+    <table class="table table-bordered">
+       <thead>
+         <tr>
+           <td>Date</td>
+           <td>Description</td>
+           <td>Amount</td>
+           <td>Balance</td>
+         </tr>
+       </thead>
+       <tbody>
+         <tr *ngFor="let txn of transactions" >
+            <td>{{txn.Date| date:'dd-MM-yyyy'}}</td>
+            <td>{{txn.Description}}</td>
+            <td>{{txn.Amount}}</td>
+            <td>{{txn.Balance}}</td>
+         </tr>
+       </tbody>
+    </table>
+  </div>
 </div>
 
 

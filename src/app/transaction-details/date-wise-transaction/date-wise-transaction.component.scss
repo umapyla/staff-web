@@ -11,4 +11,8 @@
 
  .btn-outline-success{
      width: 200px;
+     &:focus{
+        background: green;
+        color: white;
+     }
  }

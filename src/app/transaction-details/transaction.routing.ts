@@ -7,7 +7,7 @@ import { TransactionListComponent } from './transaction-list/transaction-list.co
 
 const routes: Routes = [{
     path: '',
-    component: TransactionListComponent
+    component: DateWiseTransectioComponent
 }];
 @NgModule({
     imports:[RouterModule.forChild(routes)],

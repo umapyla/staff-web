@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input,Output, EventEmitter } from '@angular/core';
 import { transactionList } from './transaction.model';
 import { TransactionListService } from '../transaction-list.service';
 
@@ -10,6 +10,9 @@ import { TransactionListService } from '../transaction-list.service';
 export class TransactionListComponent implements OnInit {
   transactions: Array<transactionList>;
   isDateWise: boolean;
+  @Output() fromDate= new EventEmitter<Date>();
+  @Output() toDate = new EventEmitter<Date>();
+
   constructor(private transServ: TransactionListService) { }
 
   ngOnInit() {
@@ -25,6 +28,10 @@ export class TransactionListComponent implements OnInit {
     console.log(res);
    });
   
+}
+ngOnChanges(): void {
+    console.log(this.fromDate);
+  console.log(this.toDate);
 }
 
 }

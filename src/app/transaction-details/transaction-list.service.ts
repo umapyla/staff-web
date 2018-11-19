@@ -6,7 +6,7 @@ export class TransactionListService {
  url: string;
   constructor(private http: Http) { }
   getData(): Observable<Response> {
-    this.url = 'https://api.myjson.com/bins/1gu5ci';
+    this.url = 'https://api.myjson.com/bins/sjaqy';
     return this.http.get(this.url);
   }
 }
