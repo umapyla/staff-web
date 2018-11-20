@@ -1,4 +1,4 @@
-
+// @import '../../../../node_modules/ngx-bootstrap/datepicker'; 
 
  table{
      margin-top: 50px;
@@ -6,7 +6,7 @@
  }
 
  .btn-group{
-     margin: 20px;
+     margin: 50px;
  }
 
  .btn-outline-success{
@@ -15,4 +15,7 @@
         background: green;
         color: white;
      }
+ }
+ .row{
+     margin: 30px;
  }

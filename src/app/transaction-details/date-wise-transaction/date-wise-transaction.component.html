@@ -1,36 +1,27 @@
 
 <div class="container">
 
-  <div class="row">
-      <div class="btn-group" role="group" aria-label="Basic example">
+
+      <div class="btn-group" role="group" aria-label="Basic example" active>
           <button type="button" class="btn btn-outline-success" (click)="searchThirtyDay(30)" [disabled]="isCustom">30 DAYS</button>
           <button type="button" class="btn btn-outline-success" (click)="searchThirtyDay(60)" [disabled]="isCustom">60 DAYS</button>
           <button type="button" class="btn btn-outline-success" (click)="searchThirtyDay(90)" [disabled]="isCustom">90 DAYS</button>
           <button type="button" class="btn btn-outline-success" (click)="custom()"  >CUSTOM</button>
         </div>
-  </div>
- 
+
+        
+
   <div *ngIf="isCustom" > 
+     
     <div class="row">
        
             <div class="col-md-3">
-                <input type="date"  placeholder="from Date" class="form-control" [(ngModel)]="fromDate" >
-                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                <script>
-                    $('#datepicker').datepicker({
-                        uiLibrary: 'bootstrap4'
-                    });
-                </script>
+                <input type="text" class="form-control" #dp="bsDatepicker" placeholder="FROM DATE" bsDatepicker [(ngModel)]="fromDate" />
             </div>
             
              
             <div class="col-md-3">
-                <input type="date" placeholder="To date"  class="form-control" [(ngModel)]="toDate" >
-                <script>
-                    $('#datepicker').datepicker({
-                        uiLibrary: 'bootstrap4'
-                    });
-                </script>
+                <input type="text" class="form-control" #dp="bsDatepicker" placeholder="TO DATE" bsDatepicker [(ngModel)]="toDate" />
             </div>
              
               <div class="col-md-3">

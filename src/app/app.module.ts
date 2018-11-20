@@ -4,19 +4,19 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { appRouting } from './app.routing';
 import { LoginComponent } from './login/login.component';
+ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-
-  
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    appRouting
+    appRouting,
+     BsDatepickerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,6 +6,7 @@ import { TransactionListComponent } from './transaction-list/transaction-list.co
 import { TransactionListService } from './transaction-list.service';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BsDatepickerModule } from '../../../node_modules/ngx-bootstrap/datepicker';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     transectionRouting,
     HttpModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BsDatepickerModule.forRoot()
     ],
   declarations: [DateWiseTransectioComponent, TransactionListComponent],
   providers: [TransactionListService],
