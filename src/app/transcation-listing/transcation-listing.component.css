@@ -1,0 +1,134 @@
+
+    .Rectangle-4 {
+    position: absolute;
+    top: 245px;
+    bottom: 755px;
+    right: 235px;
+    width: 834px;
+    /* height: 59px; */
+    box-shadow: 0 1px 0 0 #d1d1d1;
+    background-color: #ffffff;
+    padding: 0px;
+    font-size: 14px;
+    color: #666666;
+    overflow-y: scroll;
+  }
+  .Down {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    size: 24px;
+  }
+
+  .table-scroll{
+    /* display: unset; */
+    position: absolute;
+    height: 400px;
+    width: 100%;
+    overflow: scroll;
+  }
+
+  
+  .view {
+    left: 300px;
+    right: 330px;
+    width: 204px;
+    height: 18px;
+    font-family: MarkPro;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #bbbbbb;
+  }
+
+
+  .Transaction-Search_Web-Final {
+    position: fixed;
+    width: 1440px;
+    height: 1369px;
+    background-color: #f9f9f9;
+  }
+
+  .Date {
+    position: inherit;
+    top: 21px;
+    bottom: 20px;
+    left: 19px;
+    width: 35px;
+    height: 18px;
+    font-family: MarkPro;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    /* line-height: normal; */
+    letter-spacing: normal;
+    text-align: left;
+    color: #bbbbbb;
+  }
+
+  .Description {
+    position: inherit;
+    top: 21px;
+    bottom: 20px;
+    left: 144px;
+    height: 18px;
+    font-family: MarkPro;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    /* line-height: normal; */
+    letter-spacing: normal;
+    text-align: left;
+    color: #bbbbbb;
+  }
+
+  .Amount {
+    position: inherit;
+    top: 21px;
+    bottom: 20px;
+    left: 579px;
+    height: 18px;
+    font-family: MarkPro;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    /* text-align: right; */
+    color: #bbbbbb;
+  }
+
+  .Rectangle {
+    position: absolute;
+    top: 834px;
+    bottom: 695px;
+    left: 518px;
+    width: 834px;
+    height: 59px;
+    box-shadow: 0 1px 0 0 #f0f0f0;
+    background-color: #ffffff;
+    left: 518px;
+    color: #666666;
+    /* font-size: 14px; */
+  }
+
+  .Balance {
+    position: inherit;
+    top: 21px;
+    bottom: 20px;
+    left: 759px;
+    height: 18px;
+    font-family: MarkPro;
+    font-size: 14px;
+    letter-spacing: normal;
+    /* text-align: right; */
+    color: #bbbbbb;
+  }
+  

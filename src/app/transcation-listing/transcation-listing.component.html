@@ -1,0 +1,50 @@
+<div class="Transaction-Search_Web-Final ">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 Rectangle-4">
+      <table class="table ">
+        <thead>
+          <!-- <tr class="Rectangle-4" > -->
+          <tr >
+            <td class="Date">Date</td>
+            <td class="Description">Description</td>
+            <td class="Amount">Amount</td>
+            <td class="Balance">Balance</td>
+          </tr>
+        </thead>
+        <!-- <div class="Rectangle"> -->
+        <tbody>
+          <tr *ngFor="let d of transactions3; let i=index">
+            <td>{{d.Date}}</td>
+            <td>{{d.descripton}}</td>
+            <td>{{d.Amount}}</td>
+            <td>{{d.Balance}}</td>
+
+          </tr>
+          <tr >
+              <td class="view" colspan="4" *ngIf="!error && isviewMore" (click)="viewMoretranscations()" >
+                  VIEW MORE TRANSACTIONS
+                    <img src="../../assets/img/down.png" class="Down">
+                </td>
+
+                <td class="view" *ngIf="!isviewMore" colspan="4">
+                    NO MORE TRANSACTIONS
+                  
+                  </td>
+          </tr>
+        </tbody>
+        <tr>
+          
+       
+          
+          <td class="view" colspan="3" *ngIf="error">
+              SOMETHING WENT WRONG
+            </td>
+        </tr>
+    
+    </table>
+  </div>
+  </div>
+</div>
+</div>
+
