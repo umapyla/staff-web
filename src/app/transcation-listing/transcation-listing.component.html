@@ -1,3 +1,4 @@
+<div class="nedbank-green"></div>
 <div class="Transaction-Search_Web-Final ">
 <div class="container">
   <div class="row">
@@ -17,8 +18,12 @@
           <tr *ngFor="let d of transactions3; let i=index">
             <td>{{d.Date}}</td>
             <td>{{d.descripton}}</td>
-            <td>{{d.Amount}}</td>
-            <td>{{d.Balance}}</td>
+            <td [ngClass]="{
+                'Available-balance': d.newValue === 'positive', 
+                'Negative-Balance' : d.newValue === 'negative'}">
+                {{d.Amount}}</td>
+         
+           <td>{{d.Balance}}</td>
 
           </tr>
           <tr >

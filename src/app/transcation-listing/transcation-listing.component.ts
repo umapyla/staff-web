@@ -16,6 +16,7 @@ export class TranscationListingComponent implements OnInit {
     maxIndex:number;
     error: boolean;
     isviewMore:boolean;
+    myValue = 0;
   constructor(private transcationService: TranscationdetailService) { }
 
   ngOnInit() {
@@ -51,6 +52,14 @@ if(this.maxIndex>this.transactions.length)
  pushValues.forEach((item)=>{
   this.transactions3.push(item);
  });
+
+ this.transactions3.forEach((transaction) => {
+   if(transaction.Amount.indexOf("-") != -1) {
+      transaction.newValue = 'negative';
+   } else {
+     transaction.newValue = 'positive';
+   }
+ })
 }
  //console.log(pushValues);
  console.log(this.transactions3);

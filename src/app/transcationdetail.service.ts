@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class TranscationdetailService {
-  private url = 'https://api.myjson.com/bins/1ahax6';
+  private url = 'https://api.myjson.com/bins/yx3z2';
 
 
   constructor(private http: Http) { 
