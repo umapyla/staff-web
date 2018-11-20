@@ -12,6 +12,12 @@
     font-size: 14px;
     color: #666666;
     overflow-y: scroll;
+    font-weight: 500;
+  }
+  .nedbank-green {
+    width: 1440px;
+    height: 80px;
+    background-color: #006341;
   }
   .Down {
     width: 24px;
@@ -58,7 +64,7 @@
     top: 21px;
     bottom: 20px;
     left: 19px;
-    width: 35px;
+    width: 105px;
     height: 18px;
     font-family: MarkPro;
     font-size: 14px;
@@ -78,7 +84,7 @@
     left: 144px;
     height: 18px;
     font-family: MarkPro;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
@@ -130,5 +136,31 @@
     letter-spacing: normal;
     /* text-align: right; */
     color: #bbbbbb;
+    font-weight: 500;
   }
-  
+  .Available-balance {
+    width: 84px;
+    height: 20px;
+    font-family: MarkPro;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: #009639;
+  }
+  .Negative-Balance {
+    width: 94px;
+    height: 20px;
+    font-family: MarkPro;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: red;
+  }
