@@ -1,25 +1,27 @@
 <div class="viewBankerBackground">
   <div class="nedbankHeader"></div>
   <div class="desktopTabletView">
-    <div class="viewBankerTab" *ngIf="!showBankerDetails">
+    <div class="viewBankerTab" *ngIf="!showBankerDetails; else elseCondition">
       <img src="../../assets/images/right-arrow-cap.svg" class="arrowOpen" (click)="showDetails()">
       <div class="yourBanker">Your Banker</div>
     </div>
-    <div class="viewBankerDetailTab" *ngIf="showBankerDetails">
-      <div>
-        <img src="../../assets/images/right-arrow-cap.svg" class="arrowClose" (click)="hideDetails()">
-        <h5 class="nameInitial" [innerHtml]="getInitials(firstName, surName) |uppercase "></h5>
-        <span class="oval"></span>
-        <div class="nameBanker" *ngFor="let i of clientsInfo">{{i.FullNames | titlecase}}</div>
-        <div class="yourBankerDetailTab">Your Banker</div>
+    <ng-template #elseCondition>
+      <div class="viewBankerDetailTab" *ngIf="showBankerDetails">
+        <div>
+          <img src="../../assets/images/right-arrow-cap.svg" class="arrowClose" (click)="hideDetails()">
+          <h5 class="nameInitial" [innerHtml]="getInitials(firstName, surName) |uppercase "></h5>
+          <span class="oval"></span>
+          <div class="nameBanker" *ngFor="let i of clientsInfo">{{i.FullNames | titlecase}}</div>
+          <div class="yourBankerDetailTab">Your Banker</div>
+        </div>
+        <div class="divider"></div>
+        <div *ngFor="let i of bankersInfo">
+            <span class="greenCall"> </span>
+            <div class="contactInfo">{{i.workNumber}}</div>
+            <span class="greenMsg"></span>
+            <a class="emailInfo" href="mailto:{{i.emailAddress}}">{{i.emailAddress}}</a>
+        </div>
       </div>
-      <div class="divider"></div>
-      <div *ngFor="let i of bankersInfo">
-          <span class="greenCall"> </span>
-          <div class="contactInfo">{{i.workNumber}}</div>
-          <span class="greenMsg"></span>
-          <a class="emailInfo" href="mailto:{{i.emailAddress}}">{{i.emailAddress}}</a>
-      </div>
-    </div>
+    </ng-template>
   </div>
 </div>
