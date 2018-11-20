@@ -1,4 +1,4 @@
-.Web_View-Banker {
+.viewBankerBackground {
   position: fixed;
   width: 1440px;
   height: 1024px;
@@ -7,13 +7,7 @@
   margin-top: -8px;
 }
 
-.nedbank-header {
-  width: 1440px;
-  height: 80px;
-  background-color: #006341;
-}
-
-.Large---Desktop-Tablet {
+.desktopTabletView {
   position: absolute;
   top: 80px;
   right: 87px;
@@ -22,16 +16,13 @@
   height: 100px;
 }
 
-.Rectangle {
-  position: absolute;
-  top: 20px;
-  right: 87px;
-  bottom: 20px;
-  width: 200px;
-  height: 60px;
-  background-color:#ffffff;
+.nedbankHeader {
+  width: 1440px;
+  height: 80px;
+  background-color: #006341;
 }
-.Your-Banker-1 {
+
+.yourBanker {
   position: absolute;
   top: 17px;
   right: 25px;
@@ -48,7 +39,7 @@
   color: #333333;
 }
 
-.Your-Banker-2 {
+.yourBankerDetailTab {
   position: absolute;
   top: 36px;
   left: 121px;
@@ -65,7 +56,7 @@
   color: #666666;
 }
 
-.Name-Banker {
+.nameBanker {
   position: absolute;
   top: 12px;
   left: 121px;
@@ -82,18 +73,17 @@
   color: #333333;
 }
 
-.Rectangle-button {
+.viewBankerTab {
   position: absolute;
-  top: 21px;
-  bottom: 23px;
-  left: 26.2px;
-  width: 16px;
-  height: 16px;
-  transform: rotate(180deg);
-  /* border: solid 2px #bbbbbb; */
+  top: 20px;
+  right: 87px;
+  bottom: 20px;
+  width: 200px;
+  height: 60px;
+  background-color: #ffffff;
 }
 
-.Rectangle-details {
+.viewBankerDetailTab {
   position: absolute;
   top: 20px;
   right: 87px;
@@ -103,26 +93,23 @@
   background-color: #ffffff;
 }
 
-.Rectangle-button-close {
+.arrowOpen {
+  position: absolute;
+  top: 21px;
+  bottom: 23px;
+  left: 26.2px;
+  width: 16px;
+  height: 16px;
+  transform: rotate(180deg);
+}
+
+.arrowClose {
   position: absolute;
   top: 26px;
   bottom: 28px;
   left: 10.2px;
   width: 16px;
   height: 16px;
-  /* border: solid 2px #bbbbbb; */
-}
-
-.Oval {
-  position: absolute;
-  left: 51px;
-  top: 10px;
-  bottom: 10px;
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  border: solid 1px var(--apple-green);
-  background-image: url("../../assets/images/oval-3.png");
 }
 
 .nameInitial {
@@ -143,7 +130,19 @@
   color: #333333;
 }
 
-.Divider-full {
+.oval {
+  position: absolute;
+  left: 51px;
+  top: 10px;
+  bottom: 10px;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border: solid 1px var(--apple-green);
+  background-image: url("../../assets/images/oval-3.svg");
+}
+
+.divider {
   position: absolute;
   left: 258px;
   width: 1px;
@@ -151,7 +150,7 @@
   background-color: #d1d1d1;
 }
 
-.GreenMsg {
+.greenMsg {
   position: absolute;
   left: 286px;
   top: 36px;
@@ -159,10 +158,10 @@
   width: 24px;
   height: 24px;
   object-fit: contain;
-  background-image: url("../../assets/images/greenMsg.png");
+  background-image: url("../../assets/images/greenMsg.svg");
 }
 
-.GreenCall {
+.greenCall {
   position: absolute;
   left: 286px;
   top: 10px;
@@ -170,17 +169,17 @@
   width: 24px;
   height: 24px;
   object-fit: contain;
-  background-image: url("../../assets/images/greenCall.png");
+  background-image: url("../../assets/images/greenCall.svg");
 }
 
-.profile-image {
+.profileImage {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin: 5px 0 5px 10px;
 }
 
-.Email-Info {
+.emailInfo {
   position: absolute;
   left: 321px;
   top: 34px;
@@ -198,7 +197,7 @@
   text-decoration: none;
 }
 
-.Contact-Info {
+.contactInfo {
   position: absolute;
   left: 321px;
   top: 9px;
