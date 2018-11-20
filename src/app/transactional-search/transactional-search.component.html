@@ -7,48 +7,48 @@
           <div> <img src="assets/grey.svg" class="Grey" (click)="onClick()"></div>
 
         </div> -->
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div >
-                <input #mySearch [(ngModel)]="searchText" placeholder="search" (input)="updateResult(mySearch.value)">
-                
-                  <!-- <input [(ngModel)]="searchText" placeholder="search" (input)="updateResult()"> -->
-              </div>
-              
-                <table class="table table-bordered table-stripped">
-                      <thead>
-                        <tr>
-                          <td>Date</td>
-                          <td>descripton</td>
-                          <td>Amount</td>
-                          <td>Balance</td>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr *ngFor="let tx of transactions2 ">
-                          <td>{{tx.Date}}</td>
-                          <td>{{tx.descripton}}</td>
-                          <td>{{tx.Amount}}</td>
-                          <td>{{tx.Balance}}</td>
-                        </tr>
-                      </tbody>
-                      
-                    </table>
-            </div>
-          </div>
-          
-  
-        </div>
-        
-      <!-- </div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div>
+        <input type="text" [(ngModel)]="searchText" name="search" placeholder="search" (input)="updateResult()">
+        <!-- <div *ngIf="search.dirty || search.touched" class="text-danger"> -->
+        <!-- <div *ngIf="isValidSearch" class="alert alert-danger">
+          Invalid Search
+        </div> -->
+
+        <!-- </div> -->
+      </div>
+
+      <table class="table table-bordered table-stripped">
+        <thead>
+          <tr>
+            <td (click)="sort('date')"> Date</td>
+            <td>descripton</td>
+            <td (click)="sort('Amount')">   Amount</td>
+            <td>Balance</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tx of transactionsSecond ">
+            <td>{{tx.Date}}</td>
+            <td>{{tx.descripton}}</td>
+            <td >{{tx.Amount}}</td>
+            <td>{{tx.Balance}}</td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+
+
+</div>
+
+<!-- </div>
       <div>
 
       </div>
     </div>
   </div>
 </div> -->
-
-
-
-  

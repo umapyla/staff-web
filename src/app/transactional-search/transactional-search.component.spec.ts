@@ -6,9 +6,9 @@ fdescribe('TransactionalSearchComponent', () => {
   let component: TransactionalSearchComponent;
   let fixture: ComponentFixture<TransactionalSearchComponent>;
 
-  const mock = {
-    transactions1: jasmine.createSpy('transactions1').and.returnValue({ Date: "20Nov2017", descripton: 'Installment ', Amount: "-R2000.00", Balance: "R13951.84"})
-  }
+  // const mock = {
+  //   transactions1: jasmine.createSpy('transactions1').and.returnValue({ Date: "20Nov2017", descripton: 'Installment ', Amount: "-R2000.00", Balance: "R13951.84"})
+  // }
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -27,12 +27,6 @@ fdescribe('TransactionalSearchComponent', () => {
   it('should be created', () => {
     expect(component).toBeTruthy();
   });
-
-  // it('should be created', () => {
-  //   let transactions1;
-  //   component.onClear();
-  //   expect(component.transactions2).toEqual(transactions1);
-  // });
 
   it('should call update result function if searchtext lenth is greater than equal to 3', () => {
     component.searchText="mee";
