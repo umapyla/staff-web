@@ -2,38 +2,38 @@
   <div class="toggle-wrapper">
     <label>Freeze card</label>
     <label class="toggle-wrapper__toggle">
-      <input type="checkbox" (click)="open(content)" (change)="openModel = !openModel;">
+      <input type="checkbox" (click)="open(content)" (change)="openModal = !openModal;">
       <span class="toggle-wrapper__toggle__slider round"></span>
     </label>
     <div *ngIf="displayLabel">
-      <label *ngIf="isCardFreeze && !openModel">
+      <label *ngIf="isCardFreeze && !openModal">
         <span class="freezeCard"> </span>{{labels.freezeCard}}
          </label>
-         <label *ngIf="!isCardFreeze && openModel">
+         <label *ngIf="!isCardFreeze && openModal">
             <span class="freezeCard"></span>{{labels.unfreezeCard}}</label>
     </div>
   </div>
 
   <ng-template #content let-c="close" >
-    <div *ngIf="!openModel">
-        <div class="col-md-6">
+    <div *ngIf="!openModal">
+        <div class="col-md-4">
           <span class="green-info"></span>
-          <label class="labelForFreeze">{{labels.freezeConfirm}}</label><br>
-          <label class="labelForFreeze">{{labels.freezeNote}}</label><br>
-          <label class="labelForFreeze">{{labels.lostStolen}}</label>
-          <button class="nlsg-c-button" (click)="onNextClick('freeze');c('Close click')">Next</button>
-          <button class="nlsg-c-button" type="button" (click)="c('Close click')">Close</button>
+         <p> <label class="labelForFreeze">{{labels.freezeConfirm}}</label></p>
+          <p><label class="labelForFreeze">{{labels.freezeNote}}</label></p>
+        <p>  <label class="labelForFreeze">{{labels.lostStolen}}</label></p>
+          <button class="nlsg-c-button" (click)="onNextClick('freeze');c('Close click')">{{labels.next}}</button>
+          <button class="nlsg-c-button" type="button" (click)="c('Close click')">{{labels.close}}</button>
         </div>
     </div>
 
-    <div *ngIf="openModel">
+    <div *ngIf="openModal">
         <div class="col-md-6">
          <span class="green-info"></span>
-          <br>
-          <label>{{labels.unfreeze}}</label><br>
-          <label>{{labels.transactionEnabled}}</label>
-          <button class="nlsg-c-button" (click)=" onNextClick('unfreeze');c('Close click')">Next</button>
-          <button class="nlsg-c-button" type="button" (click)="c('Close click')">Close</button>
+
+          <p><label>{{labels.unfreeze}}</label></p>
+          <p><label>{{labels.transactionEnabled}}</label></p>
+          <button class="nlsg-c-button" (click)=" onNextClick('unfreeze');c('Close click')">{{labels.next}}</button>
+          <button class="nlsg-c-button" type="button" (click)="c('Close click')">{{labels.close}}</button>
         </div>
     </div>
   </ng-template>

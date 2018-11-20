@@ -1,23 +1,23 @@
-import { Component, OnInit, ViewContainerRef } from "@angular/core";
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import {
   NgbModal,
   ModalDismissReasons,
   NgbModalRef
-} from "@ng-bootstrap/ng-bootstrap";
-import { constants } from "../constants";
+} from '@ng-bootstrap/ng-bootstrap';
+import { constants } from '../constants';
 
 @Component({
-  selector: "app-demo",
-  templateUrl: "./demo.component.html",
-  styleUrls: ["./demo.component.scss"]
+  selector: 'app-demo',
+  templateUrl: './demo.component.html',
+  styleUrls: ['./demo.component.scss']
 })
 export class DemoComponent implements OnInit {
   public isCardFreeze: boolean;
   clicked = true;
   private modalRef: NgbModalRef;
-  openModel = true;
+  openModal = true;
   labels = constants.labels.freeze;
-  displayLabel: boolean = false;
+  displayLabel = false;
   constructor(private modalService: NgbModal) {}
   ngOnInit() {}
 
@@ -31,10 +31,6 @@ export class DemoComponent implements OnInit {
   }
 
   onNextClick(value: string) {
-    if (value === "freeze") {
-      this.isCardFreeze = true;
-    } else if (value === "unfreeze") {
-      this.isCardFreeze = false;
-    }
+    this.isCardFreeze = value === this.labels.freeze ? true : false;
   }
 }
