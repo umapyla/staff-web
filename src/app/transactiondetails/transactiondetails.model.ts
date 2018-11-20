@@ -9,11 +9,11 @@ export interface TxDetails {
 
 export interface IShowDetails {
 
-    AccountNumber:string;
+    AccountNumber: string;
     TransactionType: string;
-    TransactionDescription:string;
-    TransactionAmount:string;
-    TransactionDate:string;
-    ReferenceNumber:string;
-    ErrorCode:string;
+    TransactionDescription: string;
+    TransactionAmount: string;
+    TransactionDate: string;
+    ReferenceNumber: string;
+    ErrorCode: string;
 }

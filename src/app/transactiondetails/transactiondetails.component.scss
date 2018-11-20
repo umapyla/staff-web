@@ -1,16 +1,16 @@
 
 .nlsg-c-form-element{
-  background-color:#eceeef;
+
   &__label{
     position: relative;
     color: black;
     margin-bottom: 0.4rem;
     display: block;
     max-width: 390px;
-    width: 60%;
+    width: 500%;
     font-family: MarkPro;
     margin-left: 0px;
-    font-size: 18px;
+    font-size: 0.9rem;
     padding-left: 10px;
 
   }
@@ -19,27 +19,7 @@
     color:#ccc;
   }
 }
-.nlsg-c-profile {
-width:100%;
-height:100%;
-overflow: hidden;
-background: #f9f9f9;
-}
 
-.nlsg-c-profile-listing {
-box-sizing: border-box;
-float: left;
-width:100%;
-padding-left:5%;
-padding-right:5%;
-padding-bottom:5%;
-}
-.nlsg-c-profile-main {
-  background: #ffffff;
-  margin-top:2%;
-  padding-right:1%;
-  padding-left:1%;
-  }
 
   .negative{
     color: red;
@@ -48,3 +28,20 @@ padding-bottom:5%;
   .positive{
     color: green;
   }
+
+.transaction{
+   display: inline-block;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-left: 33%;
+}
+.table th, .table td {
+  height:25%;
+  width:25%;
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #eceeef;
+  background-color: white;
+
+}

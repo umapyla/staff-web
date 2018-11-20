@@ -2,7 +2,7 @@
   <div class="nlsg-c-profile-listing">
     <div class="nlsg-c-profile-main">
       <form class="nlsg-c-form-element">
-        <div>
+        <div class="transaction">
         <table class= "table table-boardered table-striped">
           <thead class="nlsg-c-form-element__title">
             <td>Date</td>
@@ -15,22 +15,32 @@
               <td>{{tx.Date}}</td>
 
               <td><span (click)="moreDetails(tx.id, tx.transaction_list)">{{tx.descripton}}</span></td>
-            <td [ngClass]="tx.Amount < 0 ? 'negative':'positive'">{{tx.Amount}}</td>
+            <td [ngClass]="tx.Amount < 0 ? 'negative':'positive'">{{tx.Amount|currency}}</td>
               <td>{{tx.Balance}}</td>
             </tr>
             <div *ngIf="displayMoreDetail[tx.id]" >
                 <div  *ngFor="let txl of showData" colspan="6">
-                  <div class="">
-                    <div class="nlsg-c-form-element__label"><label>AccountNumber:</label>{{txl.AccountNumber}}</div>
-                    <div class="nlsg-c-form-element__label"><label>TransactionType:</label>{{txl.TransactionType}}</div>
-                    <div class="nlsg-c-form-element__label"><label >TransactionDescription:</label>{{txl.TransactionDescription}}</div>
-                    <div class="nlsg-c-form-element__label"><label>TransactionAmount:</label>{{txl.TransactionAmount}}</div>
-                    <div class="nlsg-c-form-element__label"><label>TransactionDate:</label>{{txl.TransactionDate}}</div>
-                    <div class="nlsg-c-form-element__label"><label>ReferenceNumber:</label>{{txl.ReferenceNumber}}</div>
-                    <div class="nlsg-c-form-element__label"><label>ErrorCode:</label>{{txl.ErrorCode}}</div>
+                  <div class="nlsg-c-form-element__label">
+
+
+                      <div><label>AccountNumber:</label>{{txl.AccountNumber}}</div>
+                      <div><label>TransactionType:</label>{{txl.TransactionType}}</div>
+                      <div><label>TransactionDescription:</label>{{txl.TransactionDescription}}</div>
+                      <div><label>TransactionAmount:</label>{{txl.TransactionAmount}}</div>
+                      <div><label>TransactionDate:</label>{{txl.TransactionDate}}</div>
+                      <div><label>ReferenceNumber:</label>{{txl.ReferenceNumber}}</div>
+                      <div><label>ErrorCode:</label>{{txl.ErrorCode}}</div>
+                  </div>
+                 </div>
+                 <div *ngIf="!transaction_list"  class="nlsg-c-form-element__label">
+                   <div><label>Date:</label>{{tx.Date}}</div>
+                   <div><label>Description:</label>{{tx.descripton}}</div>
+                   <div><label>Amount:</label>{{tx.Amount|currency}}</div>
+                   <div><label>Balance:</label>{{tx.Balance|currency}}</div>
+
                 </div>
-              </div>
             </div>
+
           </tbody>
         </table>
       </div>

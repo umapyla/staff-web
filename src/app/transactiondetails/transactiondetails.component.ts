@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data.service';
-//import { TxDetails, IShowDetails} from './transactiondetails.model';
+
 import { Response, Http } from '@angular/http';
 import { TxDetails, IShowDetails } from './transactiondetails.model';
 
@@ -10,9 +10,9 @@ import { TxDetails, IShowDetails } from './transactiondetails.model';
   styleUrls: ['./transactiondetails.component.scss']
 })
 export class TransactiondetailsComponent implements OnInit {
-  transactionDetails:TxDetails[];
+  transactionDetails: TxDetails[];
   showData: IShowDetails[];
-  isDisplay:boolean;
+  isDisplay: boolean;
   selectedIndex: number;
   AccountData: any[];
   transaction_list: any[];
@@ -27,23 +27,23 @@ export class TransactiondetailsComponent implements OnInit {
 
   }
 
-  getData():void{
-    this.dataservice.getData().subscribe(response=>{
+  getData(): void {
+    this.dataservice.getData().subscribe(response => {
      this.transactionDetails = response.json();
-     console.log(this.transactionDetails);
+     console.log(this.transactionDetails); }
+     , error2 => {console.log('Error has occured');
     });
   }
 
 
-    moreDetails(txId:number, transaction_list: any) {
+    moreDetails(txId: number, transaction_list: any) {
     this.showData = [];
-    this.transactionDetails.forEach((currentTransaction,index)=> {
-      if(txId === currentTransaction.id){
+    this.transactionDetails.forEach((currentTransaction, index) => {
+      if (txId === currentTransaction.id) {
 
         this.showData = transaction_list;
-        this.displayMoreDetail[currentTransaction.id] = this.displayMoreDetail[currentTransaction.id] ? false: true;
-      }else
-      {
+        this.displayMoreDetail[currentTransaction.id] = this.displayMoreDetail[currentTransaction.id] ? false : true;
+      }else {
         this.displayMoreDetail[currentTransaction.id] = false;
       }
     });

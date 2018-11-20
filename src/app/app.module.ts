@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DataService } from './service/data.service';
 import { HttpModule } from '@angular/http';
 import { SignedValueDirective } from './signedValue.directive';
+import { CurrencyPipe } from './currency.pipe';
 
 export const routes:Routes = [
   {path:'dashboard',component:DashboardComponent},
@@ -20,7 +21,8 @@ export const routes:Routes = [
       AppComponent,
       TransactiondetailsComponent,
       DashboardComponent,
-      SignedValueDirective
+      SignedValueDirective,
+      CurrencyPipe
    ],
    imports: [
       BrowserModule,
