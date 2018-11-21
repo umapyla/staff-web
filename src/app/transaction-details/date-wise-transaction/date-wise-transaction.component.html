@@ -1,56 +1,64 @@
-
 <div class="container">
 
 
-      <div class="btn-group" role="group" aria-label="Basic example" active>
-          <button type="button" class="btn btn-outline-success" (click)="searchThirtyDay(30)" [disabled]="isCustom">30 DAYS</button>
-          <button type="button" class="btn btn-outline-success" (click)="searchThirtyDay(60)" [disabled]="isCustom">60 DAYS</button>
-          <button type="button" class="btn btn-outline-success" (click)="searchThirtyDay(90)" [disabled]="isCustom">90 DAYS</button>
-          <button type="button" class="btn btn-outline-success" (click)="custom()"  >CUSTOM</button>
-        </div>
+   <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" [ngClass]=" days===30 ? 'active' : '' " class="btn btn-outline-success" (click)="searchThirtyDay(30)">
+              30 DAYS
+            </button>
+      <button type="button" [ngClass]="days===60 ? 'active' : ''" class="btn btn-outline-success" (click)="searchThirtyDay(60)">60 DAYS</button>
+      <button type="button" [ngClass]="days===90 ? 'active' : ''" class="btn btn-outline-success" (click)="searchThirtyDay(90)">90 DAYS</button>
+      <button type="button" [ngClass]="{'active' : isCustom }" class="btn btn-outline-success" (click)="custom()">CUSTOM</button>
+   </div>
 
-        
 
-  <div *ngIf="isCustom" > 
-     
-    <div class="row">
-       
-            <div class="col-md-3">
-                <input type="text" class="form-control" #dp="bsDatepicker" placeholder="FROM DATE" bsDatepicker [(ngModel)]="fromDate" />
-            </div>
-            
-             
-            <div class="col-md-3">
-                <input type="text" class="form-control" #dp="bsDatepicker" placeholder="TO DATE" bsDatepicker [(ngModel)]="toDate" />
-            </div>
-             
-              <div class="col-md-3">
-                <input type="submit" class="btn btn-success" (click)="customSearch()"  >
-              </div>
-          </div>
- </div>
-  <div class="container">
-    <!-- <input type="button" class="btn btn-primary" value="DATE WISE SEARCH" (click)="dateWiseSearch()"> -->
-    <table class="table table-bordered">
-       <thead>
-         <tr>
-           <td>Date</td>
-           <td>Description</td>
-           <td>Amount</td>
-           <td>Balance</td>
-         </tr>
-       </thead>
-       <tbody>
-         <tr *ngFor="let txn of transactions" >
-            <td>{{txn.Date| date:'dd-MM-yyyy'}}</td>
-            <td>{{txn.Description}}</td>
-            <td>{{txn.Amount}}</td>
-            <td>{{txn.Balance}}</td>
-         </tr>
-       </tbody>
-    </table>
-  </div>
+
+   <div *ngIf="isCustom">
+
+      <div class="row">
+
+         <div class="col-md-3">
+            <input type="text" class="form-control" #dp="bsDatepicker" placeholder="FROM DATE" bsDatepicker [(ngModel)]="fromDate" />
+         </div>
+
+
+         <div class="col-md-3">
+            <input type="text" class="form-control" #dp="bsDatepicker" placeholder="TO DATE" bsDatepicker [(ngModel)]="toDate" />
+         </div>
+
+         <div class="col-md-3">
+            <input type="submit" class="btn btn-success" (click)="customSearch()">
+         </div>
+      </div>
+   </div>
+   <div class="container">
+      <!-- <input type="button" class="btn btn-primary" value="DATE WISE SEARCH" (click)="dateWiseSearch()"> -->
+      <table class="table table-bordered" *ngIf="!apiError">
+         <thead>
+            <tr>
+               <td>Date</td>
+               <td>Description</td>
+               <td>Amount</td>
+               <td>Balance</td>
+            </tr>
+         </thead>
+         <tbody>
+            <ng-container *ngIf="isTransaction">
+               <tr *ngFor="let txn of transactions">
+                  <td>{{txn.Date| date:'dd-MM-yyyy'}}</td>
+                  <td>{{txn.Description}}</td>
+                  <td>{{txn.Amount}}</td>
+                  <td>{{txn.Balance}}</td>
+               </tr>
+            </ng-container>
+            <ng-container *ngIf="!isTransaction">
+               <td colspan="4" class="noTransacrion"> No Transactions Available</td>
+            </ng-container>
+         </tbody>
+
+      </table>
+      <div *ngIf="apiError" class="noTransacrion">
+         SOMETHING WENT WRONG
+      </div>
+
+   </div>
 </div>
-
-
-

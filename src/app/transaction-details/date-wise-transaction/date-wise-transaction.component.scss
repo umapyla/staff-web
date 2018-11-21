@@ -3,18 +3,18 @@
  table{
      margin-top: 50px;
      margin: 20-px;
+    
  }
-
+.noTransacrion{
+    text-align: center;
+    color: red;
+}
  .btn-group{
      margin: 50px;
  }
 
  .btn-outline-success{
      width: 200px;
-     &:focus{
-        background: green;
-        color: white;
-     }
  }
  .row{
      margin: 30px;
