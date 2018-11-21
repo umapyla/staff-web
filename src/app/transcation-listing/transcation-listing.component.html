@@ -15,7 +15,7 @@
         </thead>
         <!-- <div class="Rectangle"> -->
         <tbody>
-          <tr *ngFor="let d of transactions3; let i=index">
+          <tr class="col-md-4" *ngFor="let d of transactions3">
             <td>{{d.Date}}</td>
             <td>{{d.descripton}}</td>
             <td [ngClass]="{

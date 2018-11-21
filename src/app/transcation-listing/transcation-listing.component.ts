@@ -17,6 +17,7 @@ export class TranscationListingComponent implements OnInit {
     error: boolean;
     isviewMore:boolean;
     myValue = 0;
+  
   constructor(private transcationService: TranscationdetailService) { }
 
   ngOnInit() {
@@ -24,19 +25,21 @@ export class TranscationListingComponent implements OnInit {
     this.transactions3=[];
    this.getData();
    this.error = false;
-   this.listlength = 5;
+   //this.listlength = 5;
    this.isviewMore= true;
   }
 
 getData(){
     this.transcationService.getData().subscribe(res=>{
       this.transactions = res.json();
-     // this.transactions3 = res.json();
+      this.viewMoretranscations();
+     //this.transactions3 = res.json();
   },(err: Error) => {
     
       console.log (err);    
        this.error = true;
   });
+  
 }
 viewMoretranscations(){
 
