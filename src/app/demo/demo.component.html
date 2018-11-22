@@ -6,35 +6,26 @@
       <span class="toggle-wrapper__toggle__slider round"></span>
     </label>
     <div *ngIf="displayLabel">
-      <label *ngIf="isCardFreeze && !openModal">
-        <span class="freezeCard"> </span>{{labels.freezeCard}}
-         </label>
-         <label *ngIf="!isCardFreeze && openModal">
-            <span class="freezeCard"></span>{{labels.unfreezeCard}}</label>
+      <span class="freezeCard"> </span>{{labels.freezeCard}}
     </div>
+
+    <ng-template #content let-c="close">
+      <div class="col-md-8">
+        <span class="green-info"></span>
+        <p>
+          <span>{{labels.freezeConfirm}}</span>
+        </p>
+        <p>
+          <span>{{labels.freezeNote}}</span>
+        </p>
+        <p>
+          <span>{{labels.lostStolen}}</span>
+        </p>
+        <div>
+          <button class="nlsg-c-button" (click)="onNextClick(!openModal ? 'freeze' : 'unfreeze')">{{labels.next}}</button>
+          <button class="nlsg-c-button" type="button" (click)="c('Close click')">{{labels.close}}</button>
+        </div>
+      </div>
+    </ng-template>
   </div>
-
-  <ng-template #content let-c="close" >
-    <div *ngIf="!openModal">
-        <div class="col-md-4">
-          <span class="green-info"></span>
-         <p> <label class="labelForFreeze">{{labels.freezeConfirm}}</label></p>
-          <p><label class="labelForFreeze">{{labels.freezeNote}}</label></p>
-        <p>  <label class="labelForFreeze">{{labels.lostStolen}}</label></p>
-          <button class="nlsg-c-button" (click)="onNextClick('freeze');c('Close click')">{{labels.next}}</button>
-          <button class="nlsg-c-button" type="button" (click)="c('Close click')">{{labels.close}}</button>
-        </div>
-    </div>
-
-    <div *ngIf="openModal">
-        <div class="col-md-6">
-         <span class="green-info"></span>
-
-          <p><label>{{labels.unfreeze}}</label></p>
-          <p><label>{{labels.transactionEnabled}}</label></p>
-          <button class="nlsg-c-button" (click)=" onNextClick('unfreeze');c('Close click')">{{labels.next}}</button>
-          <button class="nlsg-c-button" type="button" (click)="c('Close click')">{{labels.close}}</button>
-        </div>
-    </div>
-  </ng-template>
 </div>
