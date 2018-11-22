@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import { HttpClient  } from '@angular/common/http';
 
 @Injectable()
 export class TransactionSearchService {
-private url = 'https://api.myjson.com/bins/rato2' ;
-  constructor(private http: Http) { }
 
-getData(): Observable<Response> {
- return this.http.get(this.url);
+  // private url = 'https://api.myjson.com/bins/psdva';
+ private url = 'https://api.myjson.com/bins/d8f1a';
+    constructor(private http: HttpClient) { }
+
+    getData(): Observable<any> {
+       return this.http.get<any>(this.url);
+    }
+
 }
 
-}
