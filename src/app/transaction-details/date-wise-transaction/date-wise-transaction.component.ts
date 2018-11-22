@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import * as moment from 'moment';
 import { TransactionListService } from '../transaction-list.service';
-import { transactionList } from '../transaction-list/transaction.model';
+import { TransactionList } from './transaction.model';
 
 
 @Component({
@@ -14,8 +14,8 @@ export class DateWiseTransectioComponent implements OnInit {
    loopDate: any;
    fromDate: any;
    toDate: any;
-   transactions: transactionList[];
-   transactions3: transactionList[];
+   transactions: TransactionList[];
+   transactions3: TransactionList[];
    isCustom: boolean;
    isTransaction: boolean;
    days: number;
@@ -31,7 +31,7 @@ export class DateWiseTransectioComponent implements OnInit {
    }
 
    getTransactionList() {
-      this.transServ.getData().subscribe((res: transactionList[]) => {
+      this.transServ.getData().subscribe((res: TransactionList[]) => {
          this.transactions = res;
          this.transactions3 = res;
          console.log(res);
@@ -44,9 +44,8 @@ export class DateWiseTransectioComponent implements OnInit {
    searchThirtyDay(days: number) {
       this.days = days;
       this.isCustom = false;
-      this.isCustom = false;
       this.transactions = this.transactions3;
-      const trasactions2 = Array<transactionList>();
+      const trasactions2 = Array<TransactionList>();
       this.toDate = moment(new Date()).format('YYYY-MM-DD');
       this.fromDate = moment().subtract(days, 'd').format('YYYY-MM-DD');
       this.transactions.forEach((item) => {
@@ -66,10 +65,9 @@ export class DateWiseTransectioComponent implements OnInit {
    customSearch() {
 
       this.transactions = this.transactions3;
-      const trasactions2 = Array<transactionList>();
+      const trasactions2 = Array<TransactionList>();
       this.fromDate = moment(new Date(this.fromDate)).format('YYYY-MM-DD');
       this.toDate = moment(new Date(this.toDate)).format('YYYY-MM-DD');
-      this.loopDate;
       this.transactions.forEach((item) => {
          this.loopDate = moment(new Date(item.Date)).format('YYYY-MM-DD');
          if (this.loopDate >= this.fromDate && this.loopDate <= this.toDate) {

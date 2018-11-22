@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { appRouting } from './app.routing';
+import { AppRouting } from './app.routing';
 import { LoginComponent } from './login/login.component';
  import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
@@ -15,7 +15,7 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
-    appRouting,
+    AppRouting,
      BsDatepickerModule.forRoot()
   ],
   providers: [],

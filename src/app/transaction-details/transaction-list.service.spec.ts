@@ -7,7 +7,7 @@ describe('TransactionListService', () => {
    beforeEach(() => {
       TestBed.configureTestingModule({
          providers: [TransactionListService],
-         imports:[HttpClientTestingModule]
+         imports: [HttpClientTestingModule]
       });
    });
 

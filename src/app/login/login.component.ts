@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-  loginClick(){
-  this.router.navigate(['/accounts'])
+  loginClick() {
+  this.router.navigate(['/accounts']);
   }
 }

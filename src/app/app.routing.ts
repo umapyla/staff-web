@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 
-const routes: Routes =[
+const routes: Routes = [
     {
         path: '',
         component: LoginComponent
@@ -15,12 +15,10 @@ const routes: Routes =[
 ];
 @NgModule(
     {
-        imports:[RouterModule.forRoot(routes, {useHash: true})],
-        exports:[RouterModule],
-        providers:[]
+        imports: [RouterModule.forRoot(routes, {useHash: true})],
+        exports: [RouterModule],
+        providers: []
     }
 )
 
-export class appRouting {
-
-}
+export class AppRouting { }

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TransectionDetailsModule } from './transaction-details.module';
 import { DateWiseTransectioComponent } from './date-wise-transaction/date-wise-transaction.component';
-import { TransactionListComponent } from './transaction-list/transaction-list.component';
 
 
 const routes: Routes = [{
@@ -10,10 +9,8 @@ const routes: Routes = [{
     component: DateWiseTransectioComponent
 }];
 @NgModule({
-    imports:[RouterModule.forChild(routes)],
-    exports:[RouterModule],
-    providers:[]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule],
+    providers: []
 })
-export class transectionRouting{
-
-}
+export class TransectionRouting { }
