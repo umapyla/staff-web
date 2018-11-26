@@ -1,0 +1,54 @@
+.overlay-modal {
+  position:fixed;
+  z-index:9999;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow:  auto;
+  background-color:  rgb(0,  0, 0);
+  background-color:  rgba(0,  0, 0, 0.4);
+  }
+
+
+
+  .overlay {
+  position:  relative;
+  height: 100%;
+  width: 100%;
+  padding:  60px 30px;
+  margin: 0;
+  background: #F9F9F9;
+
+
+  // @include
+  // box-sizing(border-box);
+
+  }
+
+
+
+  .overlay.alternate {
+  background-color: #FFF;
+  color: #666;
+  text-align:  center;
+  height: 400px;
+    margin-top: 67px;
+    margin-left: 411px;
+    width: 618px;
+  }
+
+  // .overlay {
+  //   position: relative;
+  //   /* height: 100%; */
+  //   /* width: 100%; */
+  //   padding: 60px 30px;
+  //   margin: 0;
+  //   background: #F9F9F9;
+  //   overflow-x: hidden;
+  //   height: 256px;
+  //   margin-top: 171px;
+  //   margin-left: 114px;
+  // }
+
+

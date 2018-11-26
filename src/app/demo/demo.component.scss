@@ -1,0 +1,198 @@
+@import "src/theme/theme";
+@import "src/theme/theme-variables";
+@import "src/theme/theme-buttons";
+
+@import "src/theme/select";
+.freeze_card{
+font-family: MarkPro;
+font-size: 20px;
+}
+.confirm{
+  width: 398px;
+  height: 70px;
+  font-family: MarkPro;
+  font-size: 28px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: center;
+  color: #333333;
+}
+.freezeNote{
+  width: 398px;
+  height: 150px;
+  font-family: MarkPro;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: center;
+  color: #333333;
+}
+.message{
+  font-family: MarkPro;
+  font-size: 20px;
+}
+.lostStolen{
+  width: 398px;
+  height: 150px;
+  font-family: MarkPro;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: center;
+  color: #333333;
+}
+.freezeCard {
+  content: url("../../assets/images/icons/Icon_Check_Green.svg");
+}
+.green-info{
+  content: url("../../assets//images/icons/green-info.svg");
+}
+
+/* --------------------
+	------- Toggle --------
+	-------------------- */
+
+.toggle-wrapper {
+  width: 123px;
+
+  label {
+    color: $dark-grey;
+    display: block;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  &__toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+
+    & input {
+      display: none;
+
+      &:checked {
+        & ~ .toggle-wrapper__toggle__slider {
+          background-color: $tertiary;
+          border: 3px solid $tertiary;
+
+          &:before {
+            left: -1px;
+            border: 3px solid $tertiary;
+
+            -webkit-transform: translateX(28px);
+            -ms-transform: translateX(28px);
+            transform: translateX(28px);
+          }
+        }
+
+        & ~ .toggle-wrapper__toggle__off-label {
+          color: $light-grey;
+        }
+
+        & ~ .toggle-wrapper__toggle__on-label {
+          color: $tertiary;
+        }
+      }
+    }
+
+    &__slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 3px solid $light-grey;
+      background-color: $light-grey;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+      border-radius: 5px;
+
+      &:before {
+        position: absolute;
+        content: "";
+        height: 24px;
+        width: 24px;
+        left: -3px;
+        border: 3px solid $light-grey;
+        bottom: -3px;
+        background-color: $white;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+        border-radius: 5px;
+        background-clip: padding-box;
+      }
+    }
+
+    .round {
+      border-radius: 30px;
+
+
+      &:before {
+        border-radius: 30px;
+      }
+    }
+
+    &__off-label {
+      float: left;
+      font-size: 16px;
+      color: $medium-grey;
+      margin-top: 0.45rem;
+      margin-left: -2.2rem;
+      padding-right: 10px;
+    }
+
+    &__on-label {
+      float: right;
+      font-size: 16px;
+      color: $light-grey;
+      margin-top: 0.45rem;
+      margin-right: -2rem;
+      padding-left: 10px;
+    }
+  }
+}
+
+.close{
+  margin-left: 12px;
+  font-family: MarkPro;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #009639;
+}
+
+.nlsg-c-button {
+    height: 3.125rem;
+    font-size: 1rem;
+    margin-left: 116px;
+}
+
+
+@font-face {
+  font-family: MarkPro;
+  src: url(../../assets/fonts/MarkPro.otf);
+}
+.cross{
+  content: url("../../assets/images/icons/close.svg");
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  margin-left: 552px;
+  margin-top: -15px;
+
+}

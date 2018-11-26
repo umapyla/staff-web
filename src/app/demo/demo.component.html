@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="toggle-wrapper">
+    <label class="freeze_card">Freeze card</label>
+    <label class="toggle-wrapper__toggle">
+      <input type="checkbox"  (click)="open(content)" (change)="openNew();">
+      <span class="toggle-wrapper__toggle__slider round"></span>
+    </label>
+    <div *ngIf="displayLabel">
+      <span class="freezeCard"> </span>
+      <span class="message">{{labels.freezeCard}}</span>
+    </div>
+  </div>
+
+  <div *ngIf="displayOverlay">
+    <app-overlay [alternate]="true" [template]="content">
+      <ng-template #content let-c="close">
+          <span class="cross"  (click)="closeClick()"></span>
+        <div class="col-md-8">
+          <span class="green-info"></span>
+          <p>
+            <span class="confirm">{{labels.freezeConfirm}}</span>
+          </p>
+          <p>
+            <span class="freezeNote">{{labels.freezeNote}}</span>
+          </p>
+          <p>
+            <span class="lostStolen">{{labels.lostStolen}}</span>
+          </p>
+          <button class="nlsg-c-button" (click)=" onNextClick(!openModal ? 'freeze': 'unfreeze');closeClick()">{{labels.next}}</button>
+          <label class="close" type="button" (click)="closeClick()">{{labels.close}}</label>
+        </div>
+      </ng-template>
+    </app-overlay>
+  </div>
+</div>
