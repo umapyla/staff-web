@@ -6,22 +6,24 @@ import { TransactionalSearchComponent } from '../app/transactional-search/transa
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { TransactionSearchService } from './transaction-search.service';
-import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { SearchComponent } from './search/search.component';
+
 
 const routes: Routes = [
-  {path: '', component: AppComponent},
+  {path: '', component: SearchComponent},
   {path: 'transactional' , component: TransactionalSearchComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    TransactionalSearchComponent
+    TransactionalSearchComponent,
+    SearchComponent
+
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(routes), FormsModule, HttpModule,
-    HttpClientModule
+    BrowserModule, RouterModule.forRoot(routes), FormsModule, HttpClientModule
   ],
   providers: [ TransactionSearchService ],
 

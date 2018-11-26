@@ -5,22 +5,35 @@ import { TransactionSearchService } from '../transaction-search.service';
 import { ITransactionDetail } from './transaction.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 const mockTransactionList: ITransactionDetail[] = [
  {
-  descripton: 'Installment',
+  Description: 'Installment',
   Date: '20Nov2017',
   Amount: -2000.00,
   Balance: 13951.84
  },
  {
   Date: '15Oct2017',
-  descripton: 'Purchasw ',
+  Description: 'Purchase ',
   Amount: 4800.00,
   Balance: 13951.84}
 ];
 
+
+const mockTransactionListSecond: ITransactionDetail[] = [
+  {
+    Date: '15Oct2017',
+    Description: 'Purchase ',
+    Amount: 4800.00,
+    Balance: 13951.84},
+  {
+    Description: 'Installment',
+   Date: '20Nov2017',
+   Amount: -2000.00,
+   Balance: 13951.84
+  }];
 
 
 const mockTransactionServiceStub = {
@@ -29,23 +42,18 @@ const mockTransactionServiceStub = {
 
 const mockSortType = 'Amount';
 
-// const Amount = 
-// const mockSort = {
-//   sort : jasmine.createSpy('sort').and.returnValue(mockSortType)
-// };
-
 // const error = Observable.create(observer => {
 //   observer.error(new Error('error'));
 //   observer.complete();
 // });
 
-fdescribe('TransactionalSearchComponent', () => {
+describe('TransactionalSearchComponent', () => {
   let component: TransactionalSearchComponent;
   let fixture: ComponentFixture<TransactionalSearchComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, HttpClientTestingModule],
+      imports: [FormsModule, HttpClientModule],
       declarations: [ TransactionalSearchComponent ],
       providers: [TransactionSearchService, HttpClient,
       {provide: TransactionSearchService, useValue:  mockTransactionServiceStub}]
@@ -83,14 +91,14 @@ fdescribe('TransactionalSearchComponent', () => {
      expect(component.searchText.length).toBe(3);
      expect(component.transactions).toEqual([
       {
-       descripton: 'Installment',
+        Description: 'Installment',
        Date: '20Nov2017',
        Amount: -2000.00,
        Balance: 13951.84
       }]);
      expect(component.dummayArray).toEqual([
       {
-       descripton: 'Installment',
+        Description: 'Installment',
        Date: '20Nov2017',
        Amount: -2000.00,
        Balance: 13951.84
@@ -104,23 +112,19 @@ fdescribe('TransactionalSearchComponent', () => {
      expect(component.searchText.length).toBe(3);
      expect(component.transactions).toEqual([
       {
-       descripton: 'Installment',
+        Description: 'Installment',
        Date: '20Nov2017',
        Amount: -2000.00,
        Balance: 13951.84
       }]);
      expect(component.dummayArray).toEqual([
       {
-       descripton: 'Installment',
+        Description: 'Installment',
        Date: '20Nov2017',
        Amount: -2000.00,
        Balance: 13951.84
       }]);
   });
-
-  // it('should created push value', () => {
-
-  // });
 
   it('should be display search text length before 2', () => {
     component.searchText = 'ks';
@@ -129,22 +133,35 @@ fdescribe('TransactionalSearchComponent', () => {
   expect(component.searchText.length).toBe(2);
   });
 
-  // it('should be created dummy array', () => {
-  //   component.transactions = mockTransactionList;
-  //   component.sort('Amount');
-  //   expect(component.transactions).toEqual(mockTransactionList);
-  // });
+  it('should be created amount in ascending order for amount is greater than amount ', () => {
+    component.sorttype =  'asc';
+    component.sortData(mockSortType);
+    expect(component.transactions).toEqual(mockTransactionList);
 
-  // it('should created in ascending order', () => {
-  //   component.sorttype = 'asc';
-  // component.sort(mockSortType);
-  // expect(component.transactions).toBeLess;
-  // });
+  });
 
-  // it('should created in descending order', () => {
-  // component.sorttype = 'desc';
-  // component.sort(mockSortType);
-  // expect(component.transactions).toEqual(mockTransactionList);
-  // });
 
+  it('should be created in ascending order for amount', () => {
+    component.sorttype = 'asc';
+    component.sortData(mockSortType);
+   expect(component.transactions).toEqual(mockTransactionListSecond);
+  });
+
+  it('should be created amount in ascending order for amount is greater than amount ', () => {
+    component.sorttype =  'sdg';
+    component.sortData(mockSortType);
+    return 1;
+  });
+
+  it('should be amount is less than another amount', () => {
+    component.sorttype = 'desc';
+    component.sortData(mockSortType);
+    return -1;
+  });
+
+  it('should be created amount in descending order', () => {
+     component.sorttype = 'desc';
+    component.sortData(mockSortType);
+    expect(component.transactions).toEqual(mockTransactionList);
+  });
 });

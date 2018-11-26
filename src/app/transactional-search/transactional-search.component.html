@@ -2,27 +2,25 @@
   <div class="row">
     <div class="col-lg-12">
 
-      <input type="text" [(ngModel)]="searchText"  placeholder="search" (input)="updateResult()">
-      <!-- <div *ngIf="search.dirty || search.touched" class="text-danger"> -->
-      <!-- <div *ngIf="isValidSearch" class="alert alert-danger">
-          Invalid Search
-        </div> -->
+      <input type="text" [(ngModel)]="searchText" placeholder="search" (input)="updateResult()">
+
 
       <div>
 
-        <table class="table table-bordered table-stripped">
+        <table class="table table-bordered table-stripped" >
           <thead>
-            <tr>
+            <tr class="text">
               <td> Date</td>
-              <td>descripton</td>
-              <td (click)="sortData('Amount')"> Amount</td>
+              <td>Description</td>
+              <td (click)="sortData('Amount')">Amount </td>
               <td>Balance</td>
             </tr>
           </thead>
           <tbody>
+             
             <tr *ngFor="let tx of transactions">
               <td>{{tx.Date}}</td>
-              <td>{{tx.descripton}}</td>
+              <td>{{tx.Description}}</td>
               <td>{{tx.Amount}}</td>
               <td>{{tx.Balance}}</td>
             </tr>
