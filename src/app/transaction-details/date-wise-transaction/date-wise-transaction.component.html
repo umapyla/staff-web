@@ -2,11 +2,11 @@
 
 
    <div class="btn-group" role="group" aria-label="Basic example">
-      <button type="button" [ngClass]=" days===30 ? 'active' : '' " class="btn btn-outline-success" (click)="searchThirtyDay(30)">
+      <button type="button" [ngClass]=" days===30 ? 'active' : '' " class="btn btn-outline-success" (click)="dateRangeSearch(30)">
               30 DAYS
             </button>
-      <button type="button" [ngClass]="days===60 ? 'active' : ''" class="btn btn-outline-success" (click)="searchThirtyDay(60)">60 DAYS</button>
-      <button type="button" [ngClass]="days===90 ? 'active' : ''" class="btn btn-outline-success" (click)="searchThirtyDay(90)">90 DAYS</button>
+      <button type="button" [ngClass]="days===60 ? 'active' : ''" class="btn btn-outline-success" (click)="dateRangeSearch(60)">60 DAYS</button>
+      <button type="button" [ngClass]="days===90 ? 'active' : ''" class="btn btn-outline-success" (click)="dateRangeSearch(90)">90 DAYS</button>
       <button type="button" [ngClass]="{'active' : isCustom }" class="btn btn-outline-success" (click)="custom()">CUSTOM</button>
    </div>
 
@@ -31,8 +31,9 @@
       </div>
    </div>
    <div class="container">
+      <app-loader *ngIf="isLoad" ></app-loader>
       <!-- <input type="button" class="btn btn-primary" value="DATE WISE SEARCH" (click)="dateWiseSearch()"> -->
-      <table class="table table-bordered" *ngIf="!apiError">
+      <table class="table table-bordered" *ngIf="!apiError && !isLoad">
          <thead>
             <tr>
                <td>Date</td>
@@ -42,8 +43,9 @@
             </tr>
          </thead>
          <tbody>
+            
             <ng-container *ngIf="isTransaction">
-               <tr *ngFor="let txn of transactions">
+               <tr *ngFor="let txn of visibleTransactions">
                   <td>{{txn.Date| date:'dd-MM-yyyy'}}</td>
                   <td>{{txn.Description}}</td>
                   <td>{{txn.Amount}}</td>

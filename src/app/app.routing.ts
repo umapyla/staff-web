@@ -21,4 +21,5 @@ const routes: Routes = [
     }
 )
 
-export class AppRouting { }
+export class AppRouting {
+}

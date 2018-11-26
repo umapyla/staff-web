@@ -13,4 +13,6 @@ const routes: Routes = [{
     exports: [RouterModule],
     providers: []
 })
-export class TransectionRouting { }
+export class TransectionRouting {
+
+}

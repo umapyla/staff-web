@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
 import * as moment from 'moment';
 import { TransactionListService } from '../transaction-list.service';
 import { DateWiseTransectioComponent } from './date-wise-transaction.component';
-import { TransactionList } from './transaction.model';
+import { ITransactionList } from './transaction.model';
 
 
 
-const mockTransactionLIst: TransactionList[] = [
+const mockTransactionLIst: ITransactionList[] = [
    {
       Date: '2018-11-19',
       Description: 'Thank You',
@@ -25,7 +25,7 @@ const mockTransactionLIst: TransactionList[] = [
       Balance: 4500.00
    }];
 
-const mockOldTransaction: TransactionList[] = [
+const mockOldTransaction: ITransactionList[] = [
 
    {
       Date: '2017-06-19',
@@ -47,7 +47,7 @@ const mockNinetyDays = 90;
 const mockTransactionListServiceStub = {
    getData: jasmine.createSpy('getData').and.returnValue(Observable.of(mockTransactionLIst))
 };
-fdescribe('DateWiseTransectioComponent', () => {
+describe('DateWiseTransectioComponent', () => {
    let component: DateWiseTransectioComponent;
    let fixture: ComponentFixture<DateWiseTransectioComponent>;
 
@@ -65,7 +65,7 @@ fdescribe('DateWiseTransectioComponent', () => {
       component = fixture.componentInstance;
       fixture.detectChanges();
       component.transactions = mockTransactionLIst;
-      component.transactions3 = mockTransactionLIst;
+      component.transactionsApi = mockTransactionLIst;
    });
 
    it('should be created', () => {
@@ -73,32 +73,32 @@ fdescribe('DateWiseTransectioComponent', () => {
    });
 
    it('should get 30 days transaction', () => {
-      component.searchThirtyDay(mockThirtyDays);
-      expect(component.transactions).toEqual(mockTransactionLIst);
+      component.dateRangeSearch(mockThirtyDays);
+      expect(component.visibleTransactions).toEqual(component.transactions);
    });
 
    it('should get 60 days transaction', () => {
-      component.searchThirtyDay(mockSixtyDays);
-      expect(component.transactions).toEqual(mockTransactionLIst);
+      component.dateRangeSearch(mockSixtyDays);
+      expect(component.visibleTransactions).toEqual(component.transactions);
    });
 
    it('should get 90 days transaction', () => {
-      component.searchThirtyDay(mockNinetyDays);
-      expect(component.transactions).toEqual(mockTransactionLIst);
+      component.dateRangeSearch(mockNinetyDays);
+      expect(component.visibleTransactions).toEqual(component.transactions);
    });
 
    it('should get Transaction From-Date to To-Date', () => {
       component.fromDate = moment(new Date('2018-11-10')).format('YYYY-MM-DD');
       component.toDate = moment(new Date('2018-11-19')).format('YYYY-MM-DD');
       component.customSearch();
-      expect(component.transactions).toEqual(mockTransactionLIst);
+      expect(component.visibleTransactions).toEqual(component.transactions);
    });
 
    it('No transaction available for between date', () => {
       component.fromDate = moment(new Date('2018-11-20')).format('YYYY-MM-DD');
       component.toDate = moment(new Date('2018-11-22')).format('YYYY-MM-DD');
       component.customSearch();
-      expect(component.transactions).toEqual([]);
+      expect(component.visibleTransactions).toEqual([]);
    });
 
    it('API Not responding', () => {
@@ -115,7 +115,7 @@ fdescribe('DateWiseTransectioComponent', () => {
    it('should get 90 days transaction', () => {
       mockTransactionListServiceStub.getData.and.returnValue(Observable.of(mockOldTransaction));
       component.ngOnInit();
-      component.searchThirtyDay(mockNinetyDays);
+      component.dateRangeSearch(mockNinetyDays);
       expect(component.isTransaction).toBe(false);
    });
 

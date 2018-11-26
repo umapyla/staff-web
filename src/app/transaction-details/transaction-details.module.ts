@@ -6,6 +6,7 @@ import { TransactionListService } from './transaction-list.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDatepickerModule } from '../../../node_modules/ngx-bootstrap/datepicker';
 import { HttpClientModule } from '@angular/common/http';
+import { LoaderComponent } from '../loader/loader.component';
 
 @NgModule({
    imports: [
@@ -16,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
       ReactiveFormsModule,
       BsDatepickerModule.forRoot()
    ],
-   declarations: [DateWiseTransectioComponent],
+   declarations: [DateWiseTransectioComponent, LoaderComponent],
    providers: [TransactionListService],
    bootstrap: [DateWiseTransectioComponent]
 })

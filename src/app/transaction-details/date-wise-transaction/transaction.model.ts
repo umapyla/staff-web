@@ -1,8 +1,6 @@
-export class  TransactionList {
-  constructor(
-      public Date: string,
-      public Description: string,
-      public Amount: number,
-      public Balance: number
-  ) {  }
+export interface  ITransactionList {
+    Date: string;
+    Description: string;
+    Amount: number;
+    Balance: number;
 }
