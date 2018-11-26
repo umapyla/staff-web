@@ -1,0 +1,86 @@
+<div class="container">
+  <h1 class="msg">Sign Up</h1>
+  <p class="warning">Please fill in this form to create an account.</p>
+<form #userForm="ngForm"  (ngSubmit)="onSubmit(userForm.value)">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text"  #nameRef="ngModel" minlength="4" maxlength="10" required class="form-control"  name="name" ngModel>
+    <div *ngIf="nameRef.errors && (nameRef.dirty || nameRef.touched)" class="alert alert-danger" >
+      <div [hidden]="!nameRef.errors.required">
+        <p class="warningMsg"> Please enter the name</p>
+      </div>
+      <div [hidden]="!nameRef.errors.minlength">
+       <p class="warningMsg" >Please enter the alteast 4 characters</p>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text" #refEmail="ngModel" required minlength="10" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" name="email" ngModel>
+    <div *ngIf="refEmail.errors && (refEmail.dirty || refEmail.touched)" class="alert alert-danger" >
+      <div [hidden]="!refEmail.errors.pattern">
+        <p class="warningMsg">Enter valid Email Address</p>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div ngModelGroup="address" >
+    <div class="form-group">
+      <label>Street</label>
+      <input type="text" #refStreet="ngModel" minlength="4" maxlength="10" required class="form-control" name="street" ngModel>
+      <div *ngIf="refStreet.errors && (refStreet.dirty || refStreet.touched)" class="alert alert-danger" >
+        <div [hidden]="!refStreet.errors.required">
+          <p class="warningMsg">Please enter the street name</p>
+        </div>
+        <div [hidden]="!refStreet.errors.minlength">
+           <p class="warningMsg">Please enter the alteast 4 characters</p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>City</label>
+      <input type="text" #refCity="ngModel" minlength="4" maxlength="10" required class="form-control" name="city" ngModel >
+      <div *ngIf="refCity.errors && (refCity.dirty || refCity.touched)" class="alert alert-danger" >
+        <div [hidden]="!refCity.errors.required">
+          <p class="warningMsg">Please enter the name</p>
+        </div>
+        <div [hidden]="!refCity.errors.minlength">
+          <p class="warningMsg">Please enter the alteast 4 characters</p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>Postal Code</label>
+      <input type="text" #refPincode="ngModel"  required pattern="^[1-9][0-9]{4}$"   class="form-control" name="postalcode" ngModel>
+      <div *ngIf="refPincode.errors && (refPincode.dirty || refPincode.touched)" class="alert alert-danger" >
+        <div [hidden]="!refPincode.errors.pattern ">
+         <p class="warningMsg">Please enter a five digit number</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="form-group checkbox">
+      <div class="col-lg-6 ">
+       <input type="checkbox"
+         ngModel name = "terms"
+         #terms = "ngModel"
+         required>Confirm that you've read the Terms and Condition
+       </div>
+
+      <div *ngIf="(terms.invalid && terms.touched)">
+          <p class="warningMsg">You need to check this box to continue</p>
+     </div>
+  </div>
+
+  <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+  <div class="clearfix">
+    <button type="submit" class="savebtn"[class.disable]="isFormValid()">Save</button>
+    <button type="button" class="cancelbtn">Cancel</button>
+  </div>
+</form>
+</div>

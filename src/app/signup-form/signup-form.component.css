@@ -1,0 +1,74 @@
+* {box-sizing: border-box}
+
+  input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 0px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+.disable{
+  cursor: not-allowed;
+}
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+.warningMsg{
+  font-weight: bold;
+  font-size: 18px;
+  color: #f44336;
+}
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+  text-emphasis-color: red;
+}
+
+.cancelbtn, .savebtn {
+  float: left;
+  width: 50%;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+    width: 75%;
+  }
+}
+.msg {
+  text-align: center;
+}
+ .warning {
+   text-align: center;
+   font-size: 24px;
+ }
+input.ng-invalid{border-left:5px solid red;}
+input.ng-valid{border-left:5px solid green}
