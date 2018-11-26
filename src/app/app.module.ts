@@ -4,14 +4,13 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AppComponent } from './app.component';
 import { AppRouting } from './app.routing';
 import { LoginComponent } from './login/login.component';
-
+import { OnlinePurchaseComponent } from './online-purchase/online-purchase.component';
 
 
 @NgModule({
    declarations: [
       AppComponent,
-      LoginComponent,
-
+      LoginComponent
    ],
    imports: [
       BrowserModule,
