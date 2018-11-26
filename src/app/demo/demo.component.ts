@@ -12,33 +12,46 @@ import { constants } from '../constants';
   styleUrls: ['./demo.component.scss']
 })
 export class DemoComponent implements OnInit {
-checkboxStatus: boolean;
+  checkboxStatus: boolean;
   confirmOverlay: boolean;
   confirmVisible: boolean;
   displayOverlay: boolean;
   isCardFreeze: boolean;
   private modalRef: NgbModalRef;
   openModal: boolean;
+  freezeConfirm: string;
+  freezeNote: string;
+  lostStolen: string;
+  freezeCard: string;
   labels = constants.labels.freeze;
-  displayLabel= false;
-  constructor(private modalService: NgbModal) {}
+  displayLabel = false;
+  constructor(private modalService: NgbModal) { }
   ngOnInit() {
     this.displayOverlay = false;
     this.confirmVisible = true;
     this.confirmOverlay = false;
     this.checkboxStatus = false;
     this.openModal = true;
+    this.isCardFreeze = false;
   }
 
   openNew() {
     this.displayOverlay = true;
-    this.labels.freezeConfirm = this.openModal ? this.labels.freezeConfirm : this.labels.unfreeze;
-    this.labels.freezeNote = this.openModal ? this.labels.freezeNote : this.labels.transactionEnabled;
-    this.labels.lostStolen = this.openModal ? this.labels.lostStolen : '';
-    this.labels.freezeCard =  this.openModal && !this.isCardFreeze ? this.labels.freezeCard : this.labels.unfreezeCard;
+    if (this.isCardFreeze === false) {
+      this.freezeConfirm = this.labels.freezeConfirm;
+      this.freezeNote = this.labels.freezeNote;
+      this.lostStolen = this.labels.lostStolen;
+      this.freezeCard = this.labels.freezeCard;
+    }
+    else if (this.isCardFreeze === true) {
+      this.freezeConfirm = this.labels.unfreeze;
+      this.freezeNote = this.labels.transactionEnabled;
+      this.lostStolen = '';
+      this.freezeCard = this.labels.unfreezeCard;
+    }
   }
   open(content) {
-     this.modalRef = this.modalService.open(content);
+    this.modalRef = this.modalService.open(content);
     this.displayLabel = false;
     this.displayOverlay = true;
   }
@@ -47,11 +60,9 @@ checkboxStatus: boolean;
     this.modalService.open(content);
   }
   onNextClick(value: string) {
-    // this.checkboxStatus = !this.checkboxStatus;
     this.displayOverlay = false;
     this.displayLabel = true;
     this.isCardFreeze = value === 'freeze' ? true : false;
-    console.log('isCardFreeze' + this.isCardFreeze);
   }
   closeClick() {
     this.checkboxStatus = false;

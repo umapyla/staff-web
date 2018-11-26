@@ -7,26 +7,26 @@
     </label>
     <div *ngIf="displayLabel">
       <span class="freezeCard"> </span>
-      <span class="message">{{labels.freezeCard}}</span>
+      <span class="message">{{freezeCard}}</span>
     </div>
   </div>
 
   <div *ngIf="displayOverlay">
     <app-overlay [alternate]="true" [template]="content">
       <ng-template #content let-c="close">
-          <span class="cross"  (click)="closeClick()"></span>
+        <span class="cross" (click)="closeClick()"></span>
         <div class="col-md-8">
           <span class="green-info"></span>
           <p>
-            <span class="confirm">{{labels.freezeConfirm}}</span>
+            <span class="confirm">{{freezeConfirm}}</span>
           </p>
           <p>
-            <span class="freezeNote">{{labels.freezeNote}}</span>
+            <span class="freezeNote">{{freezeNote}}</span>
           </p>
           <p>
-            <span class="lostStolen">{{labels.lostStolen}}</span>
+            <span class="lostStolen">{{lostStolen}}</span>
           </p>
-          <button class="nlsg-c-button" (click)=" onNextClick(!openModal ? 'freeze': 'unfreeze');closeClick()">{{labels.next}}</button>
+          <button class="nlsg-c-button" (click)=" onNextClick(!openModal ? 'unfreeze': 'freeze');closeClick()">{{labels.next}}</button>
           <label class="close" type="button" (click)="closeClick()">{{labels.close}}</label>
         </div>
       </ng-template>
