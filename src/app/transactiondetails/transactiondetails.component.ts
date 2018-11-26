@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data.service';
-
-import { Response, Http } from '@angular/http';
 import { TxDetails, IShowDetails } from './transactiondetails.model';
 
 @Component({
@@ -17,6 +15,9 @@ export class TransactiondetailsComponent implements OnInit {
   AccountData: any[];
   transaction_list: any[];
   displayMoreDetail: any[] = [];
+  message= 'Error Occured';
+  error: boolean;
+  errorMsg: string;
   constructor(private dataservice: DataService) { }
 
   ngOnInit() {
@@ -28,10 +29,12 @@ export class TransactiondetailsComponent implements OnInit {
   }
 
   getData(): void {
-    this.dataservice.getData().subscribe(response => {
-     this.transactionDetails = response.json();
+    this.dataservice.getData().subscribe((response: TxDetails[]) => {
+     this.transactionDetails = response;
      console.log(this.transactionDetails); }
-     , error2 => {console.log('Error has occured');
+     , (error) => {
+      this.errorMsg = 'Error Occurred';
+
     });
   }
 

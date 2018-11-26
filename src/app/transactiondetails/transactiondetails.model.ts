@@ -4,9 +4,9 @@ export interface TxDetails {
      descripton: string;
      Amount: number;
      Balance: string;
+     transaction_list?: IShowDetails[];
 
 }
-
 export interface IShowDetails {
 
     AccountNumber: string;

@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Response , Http} from '@angular/http';
+import { Response} from '@angular/http';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class DataService {
 
 private url = 'https://api.myjson.com/bins/14j0hq';
 
-constructor(private http: Http) {}
-getData(): Observable<Response> {
-return  this.http.get(this.url);
+constructor(private http: HttpClient) {}
+getData(): Observable<any> {
+  return this.http.get<any>(this.url);
 }
 
 }

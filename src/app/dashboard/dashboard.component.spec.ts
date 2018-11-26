@@ -1,23 +1,26 @@
-/* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-
+import { RouterTestingModule} from '@angular/router/testing';
+import { Router } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
+  let route: Router;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ]
+      imports: [RouterTestingModule],
+      declarations: [ DashboardComponent],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DashboardComponent);
+    route = TestBed.get(Router);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -25,4 +28,12 @@ describe('DashboardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+
+  it('navigate to transaction', () => {
+    const spy = spyOn(route , 'navigate');
+    component.goToTransaction();
+    expect(spy.calls.first().args[0]).toEqual(['/transaction']);
+  });
+  });
+
+
