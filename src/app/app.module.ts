@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { TransactiondetailsComponent } from './transactiondetails/transactiondetails.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -16,13 +15,14 @@ export const routes: Routes = [
   { path: 'transaction', component: TransactiondetailsComponent }
 
 ];
-
+import { OnlinePurchaseComponent } from './online-purchase/online-purchase.component';
 @NgModule({
   declarations: [
     AppComponent,
     TransactiondetailsComponent,
     DashboardComponent,
     CurrencyPipe
+    OnlinePurchaseComponent
   ],
   imports: [
     CommonModule,
