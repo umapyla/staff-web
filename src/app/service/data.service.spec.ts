@@ -34,10 +34,10 @@ describe('Service: Data', () => {
     });
   });
 
-  it('should ...', inject([DataService], (service: DataService) => {
+  it('should be created', inject([DataService], (service: DataService) => {
     expect(service).toBeTruthy();
   }));
-  it('should get transaction details ...', inject([DataService], (service: DataService) => {
+  it('it should give transaction details ...', inject([DataService], (service: DataService) => {
     service.getData().subscribe((response) => {
       expect(response).toBeDefined();
       expect(response.length).toBe(1);

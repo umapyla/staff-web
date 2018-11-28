@@ -29,7 +29,7 @@ describe('DashboardComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('navigate to transaction', () => {
+  it('should navigate to transaction', () => {
     const spy = spyOn(route , 'navigate');
     component.goToTransaction();
     expect(spy.calls.first().args[0]).toEqual(['/transaction']);

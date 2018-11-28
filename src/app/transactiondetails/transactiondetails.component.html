@@ -1,50 +1,53 @@
-<div class="nlsg-c-profile">
-  <div class="nlsg-c-profile-listing">
-    <div class="nlsg-c-profile-main">
-      <form class="nlsg-c-form-element">
-        <div class="transaction">
-        <table class= "table table-boardered table-striped">
-          <thead class="nlsg-c-form-element__title">
-            <td>Date</td>
-            <td>Description</td>
-            <td>Amount</td>
-            <td>Balance</td>
-          </thead>
-          <tbody  *ngFor="let tx of transactionDetails; let i=index">
-            <tr>
-              <td>{{tx.Date}}</td>
+<form class="nlsg-c-form-element">
+  <div class="transaction">
+    <table class="table table-boardered table-striped">
+      <thead class="nlsg-c-form-element__title">
+        <td>Date</td>
+        <td>Description</td>
+        <td>Amount</td>
+        <td>Balance</td>
+      </thead>
+      <tbody *ngFor="let tx of transactionDetails; let i=index">
+        <tr>
+          <td>{{tx.Date}}</td>
 
-              <td><span (click)="moreDetails(tx.id, tx.transaction_list)">{{tx.descripton}}</span></td>
-            <td [ngClass]="tx.Amount < 0 ? 'negative':'positive'">{{tx.Amount|currency}}</td>
-              <td>{{tx.Balance}}</td>
-            </tr>
-            <div *ngIf="displayMoreDetail[tx.id]" >
-                <div  *ngFor="let txl of showData" colspan="6">
-                  <div class="nlsg-c-form-element__label">
-
-
-                      <div><label>Account Number:</label>{{txl.AccountNumber}}</div>
-                      <div><label>Transaction Type:</label>{{txl.TransactionType}}</div>
-                      <div><label>Transaction Description:</label>{{txl.TransactionDescription}}</div>
-                      <div><label>Transaction Amount:</label>{{txl.TransactionAmount}}</div>
-                      <div><label>Transaction Date:</label>{{txl.TransactionDate}}</div>
-                      <div><label>Reference Number:</label>{{txl.ReferenceNumber}}</div>
-                      <div><label>Error Code:</label>{{txl.ErrorCode}}</div>
-                  </div>
-                 </div>
-                 <div *ngIf="!transaction_list"  class="nlsg-c-form-element__label">
-                   <div><label>Date:</label>{{tx.Date}}</div>
-                   <div><label>Description:</label>{{tx.descripton}}</div>
-                   <div><label>Amount:</label>{{tx.Amount|currency}}</div>
-                   <div><label>Balance:</label>{{tx.Balance|currency}}</div>
-
-                </div>
+          <td>
+            <span (click)="moreDetails(tx.id, tx.transaction_list)">{{tx.descripton}}</span>
+          </td>
+          <td [ngClass]="tx.Amount < 0 ? 'negative':'positive'">{{tx.Amount|currency}}</td>
+          <td>{{tx.Balance}}</td>
+        </tr>
+        <div *ngIf="displayMoreDetail[tx.id]">
+          <div *ngFor="let txl of showData">
+            <div class="nlsg-c-form-element__label">
+              <p>
+                <label>Account Number:</label>{{txl.AccountNumber}}</p>
+              <p>
+                <label>Transaction Type:</label>{{txl.TransactionType}}</p>
+              <p>
+                <label>Transaction Description:</label>{{txl.TransactionDescription}}</p>
+              <p>
+                <label>Transaction Amount:</label>{{txl.TransactionAmount}}</p>
+              <p>
+                <label>Transaction Date:</label>{{txl.TransactionDate}}</p>
+              <p>
+                <label>Reference Number:</label>{{txl.ReferenceNumber}}</p>
+              <p>
+                <label>Error Code:</label>{{txl.ErrorCode}}</p>
             </div>
-
-          </tbody>
-        </table>
-      </div>
-    </form>
+          </div>
+          <div *ngIf="!transaction_list" class="nlsg-c-form-element__label">
+            <p>
+              <label>Date:</label>{{tx.Date}}</p>
+            <p>
+              <label>Description:</label>{{tx.descripton}}</p>
+            <p>
+              <label>Amount:</label>{{tx.Amount|currency}}</p>
+            <p>
+              <label>Balance:</label>{{tx.Balance|currency}}</p>
+          </div>
+        </div>
+      </tbody>
+    </table>
   </div>
-  </div>
-</div>
+</form>

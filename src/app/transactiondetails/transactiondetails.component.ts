@@ -12,41 +12,31 @@ export class TransactiondetailsComponent implements OnInit {
   showData: IShowDetails[];
   isDisplay: boolean;
   selectedIndex: number;
-  AccountData: any[];
-  transaction_list: any[];
+  transaction_list: IShowDetails[];
   displayMoreDetail: any[] = [];
-  message= 'Error Occured';
-  error: boolean;
   errorMsg: string;
   constructor(private dataservice: DataService) { }
-
   ngOnInit() {
     this.getData();
     this.transactionDetails.forEach((data, index) => {
       this.displayMoreDetail[data.id] = true;
-  });
-
-  }
-
-  getData(): void {
-    this.dataservice.getData().subscribe((response: TxDetails[]) => {
-     this.transactionDetails = response;
-     console.log(this.transactionDetails); }
-     , (error) => {
-      this.errorMsg = 'Error Occurred';
-
     });
   }
-
-
-    moreDetails(txId: number, transaction_list: any) {
+  getData() {
+    this.dataservice.getData().subscribe((response: TxDetails[]) => {
+      this.transactionDetails = response;
+    }
+      , (error) => {
+        this.errorMsg = 'Error Occurred';
+      });
+  }
+  moreDetails(transactionId: number, transaction_list: IShowDetails[]) {
     this.showData = [];
     this.transactionDetails.forEach((currentTransaction, index) => {
-      if (txId === currentTransaction.id) {
-
+      if (transactionId === currentTransaction.id) {
         this.showData = transaction_list;
         this.displayMoreDetail[currentTransaction.id] = this.displayMoreDetail[currentTransaction.id] ? false : true;
-      }else {
+      } else {
         this.displayMoreDetail[currentTransaction.id] = false;
       }
     });
