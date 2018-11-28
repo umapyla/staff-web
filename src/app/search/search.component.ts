@@ -9,6 +9,7 @@ import { Constants } from '../core/constant';
 })
 export class SearchComponent implements OnInit {
   nextPage = Constants.transactions.nextPage;
+
   constructor(private router: Router) { }
 
   ngOnInit() {
