@@ -32,6 +32,5 @@ describe('SearchComponent', () => {
     const spy = spyOn(route, 'navigate');
     component.onNextPage();
     expect(spy.calls.first().args[0]).toEqual(['/transactional']);
-
   });
 });

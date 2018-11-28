@@ -11,8 +11,8 @@ import { SearchComponent } from './search/search.component';
 
 
 const routes: Routes = [
-  {path: '', component: SearchComponent},
-  {path: 'transactional' , component: TransactionalSearchComponent}
+  { path: '', component: SearchComponent },
+  { path: 'transactional', component: TransactionalSearchComponent }
 ];
 
 @NgModule({
@@ -25,7 +25,7 @@ const routes: Routes = [
   imports: [
     BrowserModule, RouterModule.forRoot(routes), FormsModule, HttpClientModule
   ],
-  providers: [ TransactionSearchService ],
+  providers: [TransactionSearchService],
 
   bootstrap: [AppComponent]
 })
