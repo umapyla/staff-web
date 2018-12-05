@@ -1,6 +1,4 @@
 <div class="container">
-
-
    <div class="btn-group" role="group" aria-label="Basic example">
       <button type="button" [ngClass]=" days===30 ? 'active' : '' " class="btn btn-outline-success" (click)="dateRangeSearch(30)">
               30 DAYS
@@ -9,31 +7,21 @@
       <button type="button" [ngClass]="days===90 ? 'active' : ''" class="btn btn-outline-success" (click)="dateRangeSearch(90)">90 DAYS</button>
       <button type="button" [ngClass]="{'active' : isCustom }" class="btn btn-outline-success" (click)="custom()">CUSTOM</button>
    </div>
-
-
-
    <div *ngIf="isCustom">
-
       <div class="row">
-
          <div class="col-md-3">
             <input type="text" class="form-control" #dp="bsDatepicker" placeholder="FROM DATE" bsDatepicker [(ngModel)]="fromDate" />
          </div>
-
-
          <div class="col-md-3">
             <input type="text" class="form-control" #dp="bsDatepicker" placeholder="TO DATE" bsDatepicker [(ngModel)]="toDate" />
          </div>
-
          <div class="col-md-3">
             <input type="submit" class="btn btn-success" (click)="customSearch()">
          </div>
       </div>
    </div>
    <div class="container">
-      <app-loader *ngIf="isLoad" ></app-loader>
-      <!-- <input type="button" class="btn btn-primary" value="DATE WISE SEARCH" (click)="dateWiseSearch()"> -->
-      <table class="table table-bordered" *ngIf="!apiError && !isLoad">
+      <table class="table table-bordered" *ngIf="!apiError">
          <thead>
             <tr>
                <td>Date</td>
@@ -43,7 +31,6 @@
             </tr>
          </thead>
          <tbody>
-            
             <ng-container *ngIf="isTransaction">
                <tr *ngFor="let txn of visibleTransactions">
                   <td>{{txn.Date| date:'dd-MM-yyyy'}}</td>
@@ -53,14 +40,12 @@
                </tr>
             </ng-container>
             <ng-container *ngIf="!isTransaction">
-               <td colspan="4" class="noTransacrion"> No Transactions Available</td>
+               <td colspan="4" class="noTransaction"> No Transactions Available</td>
             </ng-container>
          </tbody>
-
       </table>
       <div *ngIf="apiError" class="noTransacrion">
          SOMETHING WENT WRONG
       </div>
-
    </div>
 </div>

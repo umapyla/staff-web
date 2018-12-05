@@ -8,8 +8,7 @@ const routes: Routes = [
         component: LoginComponent
     },
     {
-        path: 'accounts',
-        // loadChildren: './transaction-details/transaction-details.module#TransectionDetailsModule'
+        path: 'transactions',
         loadChildren: './transaction-details/transaction-details.module#TransectionDetailsModule'
       },
 ];
@@ -17,9 +16,7 @@ const routes: Routes = [
     {
         imports: [RouterModule.forRoot(routes, {useHash: true})],
         exports: [RouterModule],
-        providers: []
     }
 )
-
 export class AppRouting {
 }

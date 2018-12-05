@@ -3,18 +3,15 @@ import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import * as moment from 'moment';
 import { TransactionListService } from '../transaction-list.service';
 import { ITransactionList } from './transaction.model';
-
-
-
 @Component({
    selector: 'app-date-wise-transaction',
    templateUrl: './date-wise-transaction.component.html',
    styleUrls: ['./date-wise-transaction.component.scss']
 })
 export class DateWiseTransectioComponent implements OnInit {
-   loopDate: any;
-   fromDate: any;
-   toDate: any;
+   loopDate: string;
+   fromDate: string;
+   toDate: string;
    visibleTransactions: ITransactionList[];
    transactionsApi: ITransactionList[];
    transactions: ITransactionList[];
@@ -22,30 +19,21 @@ export class DateWiseTransectioComponent implements OnInit {
    isTransaction: boolean;
    days: number;
    apiError: boolean;
-   isload: boolean;
    constructor(private transServ: TransactionListService) { }
-
    ngOnInit() {
-       this.isload = true;
-      this.isTransaction = true;
       this.isCustom = false;
       this.getTransactionList();
-      console.log(this.transactionsApi);
       this.apiError = false;
+      this.isTransaction = true;
    }
-
    getTransactionList() {
       this.transServ.getData().subscribe((res: ITransactionList[]) => {
          this.visibleTransactions = res;
          this.transactionsApi = res;
-         console.log(res);
-         this.isload = !this.isload;
       }, (err) => {
          this.apiError = true;
       });
-
    }
-
    dateRangeSearch(days: number) {
       this.days = days;
       this.isCustom = false;
@@ -58,17 +46,12 @@ export class DateWiseTransectioComponent implements OnInit {
             this.transactions.push(item);
          }
       });
-
       this.visibleTransactions = this.transactions;
       if (this.visibleTransactions.length === 0) {
-         this.isTransaction = !this.isTransaction;
+         this.isTransaction = false;
       }
-
-
    }
-
    customSearch() {
-
       this.visibleTransactions = this.transactionsApi;
       this.transactions = [];
       this.fromDate = moment(new Date(this.fromDate)).format('YYYY-MM-DD');
@@ -81,10 +64,9 @@ export class DateWiseTransectioComponent implements OnInit {
       });
       this.visibleTransactions = this.transactions;
       if (this.visibleTransactions.length === 0) {
-         this.isTransaction = !this.isTransaction;
+         this.isTransaction = false;
       }
    }
-
    custom() {
       this.days = 0;
       this.visibleTransactions = this.transactionsApi;

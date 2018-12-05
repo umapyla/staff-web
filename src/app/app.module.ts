@@ -1,17 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AppComponent } from './app.component';
 import { AppRouting } from './app.routing';
 import { LoginComponent } from './login/login.component';
 
-
-
 @NgModule({
    declarations: [
       AppComponent,
-      LoginComponent,
-
+      LoginComponent
    ],
    imports: [
       BrowserModule,
@@ -19,6 +16,7 @@ import { LoginComponent } from './login/login.component';
       BsDatepickerModule.forRoot()
    ],
    providers: [],
-   bootstrap: [AppComponent]
+   bootstrap: [AppComponent],
+   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

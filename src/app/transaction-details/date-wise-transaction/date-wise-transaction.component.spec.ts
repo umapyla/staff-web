@@ -101,7 +101,7 @@ describe('DateWiseTransectioComponent', () => {
       expect(component.visibleTransactions).toEqual([]);
    });
 
-   it('API Not responding', () => {
+   it('Get transaction list faild', () => {
       mockTransactionListServiceStub.getData.and.returnValue(Observable.throw(new Error()));
       component.getTransactionList();
       expect(component.apiError).toBe(true);
